@@ -1,12 +1,14 @@
 package com.wow.wow.model;
 
+import java.util.Collection;
+
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
 import lombok.NoArgsConstructor;
@@ -23,19 +25,15 @@ public class Product {
 
 	private @NotNull String description;
 
+	@Column(unique = true)
 	private @NotNull String code;
 
 	private @NotNull double price;
 
 	private @NotNull String size;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinTable(name = "CustomerPassports",
-        joinColumns = @JoinColumn(name="customer_fk"),
-        inverseJoinColumns = @JoinColumn(name="passport_fk")
-    )
-	private User user;
-	
+	private @NotNull String type;
+
 	public String getName() {
 		return name;
 	}
@@ -84,12 +82,12 @@ public class Product {
 		this.size = size;
 	}
 
-	public User getUser() {
-		return user;
+	public String getType() {
+		return type;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	

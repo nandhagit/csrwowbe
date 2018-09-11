@@ -4,12 +4,12 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wow.wow.PaymentService;
 import com.wow.wow.model.Payment;
 import com.wow.wow.model.PaymentCallback;
 import com.wow.wow.model.PaymentDetail;
 import com.wow.wow.model.PaymentStatus;
 import com.wow.wow.repository.PaymentRepository;
+import com.wow.wow.service.PaymentService;
 import com.wow.wow.utility.PaymentUtil;
 
 @Service

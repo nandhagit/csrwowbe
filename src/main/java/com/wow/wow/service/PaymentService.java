@@ -1,4 +1,4 @@
-package com.wow.wow;
+package com.wow.wow.service;
 import com.wow.wow.model.PaymentCallback;
 import com.wow.wow.model.PaymentDetail;
 

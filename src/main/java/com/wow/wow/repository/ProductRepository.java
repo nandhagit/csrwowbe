@@ -12,5 +12,7 @@ import com.wow.wow.model.Product;
 @RepositoryRestResource
 @CrossOrigin(origins = "http://localhost:4200")
 public interface ProductRepository extends JpaRepository<Product, Long> {
+	
 	List<Product> findByName(@Param("name") String name);
+	List<Product> findByTypeIn(List<String> type);
 }

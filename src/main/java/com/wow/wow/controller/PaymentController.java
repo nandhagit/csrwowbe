@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wow.wow.PaymentService;
 import com.wow.wow.model.PaymentCallback;
 import com.wow.wow.model.PaymentDetail;
 import com.wow.wow.model.PaymentMode;
+import com.wow.wow.service.PaymentService;
 
 @RestController
 @RequestMapping("/payment")
