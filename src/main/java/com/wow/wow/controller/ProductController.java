@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wow.wow.model.Cart;
 import com.wow.wow.model.Product;
-import com.wow.wow.model.User;
 import com.wow.wow.repository.CartRepository;
 import com.wow.wow.repository.ProductRepository;
 import com.wow.wow.repository.UserRepository;

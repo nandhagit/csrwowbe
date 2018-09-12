@@ -1,6 +1,5 @@
 package com.wow.wow.model;
 
-import java.util.Collection;
 import java.util.Set;
 
 import javax.persistence.CascadeType;

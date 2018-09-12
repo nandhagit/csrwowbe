@@ -10,6 +10,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class WowUserDetails extends User implements UserDetails {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2267233991938245953L;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<SimpleGrantedAuthority> lst = new ArrayList<>();
