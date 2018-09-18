@@ -1,5 +1,6 @@
 package com.wow.wow.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ public class Role {
 
 	private @NotNull String role;
 
+	@Column(unique = true)
 	public String getRole() {
 		return role;
 	}

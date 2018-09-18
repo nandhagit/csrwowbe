@@ -92,5 +92,11 @@ public class ProductController {
 		return pro;
 		
 	}
+	
+	@RequestMapping(value = "/getcartcount", method = RequestMethod.GET)
+	@CrossOrigin(origins = "http://localhost:4200")
+	public int getCartCount(@RequestParam("user") Long userId) {
+		return cartrepo.findByUserId(userId).size();
+	}
 
 }

@@ -1,5 +1,6 @@
 package com.wow.wow;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -9,6 +10,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.ClassPathResource;
 
 import com.wow.wow.model.Product;
 import com.wow.wow.model.Role;
@@ -33,13 +35,22 @@ public class WowApplication {
 			Stream.of("Ferrari", "Jaguar", "Po rsche", "Lamborghini", "Bugatti", "AMC Gremlin", "Triumph Stag",
 					"Ford Pinto", "Yugo GV", "Ferrari", "Jaguar", "Porsche", "Lamborghini", "Bugatti", "AMC Gremlin",
 					"Triumph Stag").forEach(name -> {
-						
+
 						Product pro = new Product();
 						pro.setName(name);
 						pro.setDescription("Default");
-						
-						pro.setCode("WOW12"+ran.nextInt());
-						pro.setPrice(278.90);	
+						ClassPathResource img = new ClassPathResource("image/bag.png");
+						byte[] arrayPic;
+						try {
+							arrayPic = new byte[(int) img.contentLength()];
+							img.getInputStream().read(arrayPic);
+							pro.setImage(arrayPic);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+
+						pro.setCode("WOW12" + ran.nextInt());
+						pro.setPrice(278.90);
 						pro.setSize("1'12''");
 						pro.setType("Pipping Long Shopping");
 						for (int i = 0; i < 3; i++) {
@@ -47,21 +58,30 @@ public class WowApplication {
 						}
 						repository.save(pro);
 					});
-			Stream.of( "Bugatti", "AMC Gremlin",
-					"Triumph Stag", "Ford Pinto", "Yugo GV").forEach(name -> {
-						
-						Product pro = new Product();
-						pro.setName(name);
-						pro.setDescription("Default");
-						pro.setCode("WOW12"+ran.nextInt());
-						pro.setPrice(278.90);
-						pro.setSize("1'12''");
-						pro.setType("Long Shopping Bag");
-						for (int i = 0; i < 3; i++) {
-							lstProducts.add(pro);
-						}
-						repository.save(pro);
-					});
+			Stream.of("Bugatti", "AMC Gremlin", "Triumph Stag", "Ford Pinto", "Yugo GV").forEach(name -> {
+
+				Product pro = new Product();
+				pro.setName(name);
+				pro.setDescription("Default");
+				ClassPathResource img = new ClassPathResource("image/bag.png");
+				byte[] arrayPic;
+				try {
+					arrayPic = new byte[(int) img.contentLength()];
+					img.getInputStream().read(arrayPic);
+					pro.setImage(arrayPic);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				pro.setCode("WOW12" + ran.nextInt());
+				pro.setPrice(278.90);
+				pro.setSize("1'12''");
+				pro.setType("Long Shopping Bag");
+				for (int i = 0; i < 3; i++) {
+					lstProducts.add(pro);
+				}
+				repository.save(pro);
+			});
 			Stream.of("USER", "ADMIN").forEach(name -> {
 				Role pro = new Role();
 				pro.setRole(name);
@@ -77,18 +97,20 @@ public class WowApplication {
 				user.setLastname(name);
 				user.setEmail(user.getFirstname());
 				user.setPassword(user.getFirstname());
+				user.setPhonenum("9843514822");
 				user.setRole(role);
 				userrepo.save(user);
 			});
 			Stream.of("dany").forEach(name -> {
 				Set<Role> role1 = new HashSet<>();
 				Role pro = new Role();
-				pro.setRole("USER");
+				pro.setRole("USER1");
 				role1.add(pro);
 				rolrrepo.save(pro);
 				User user = new User();
 				user.setFirstname(name);
 				user.setLastname(name);
+				user.setPhonenum("9843514822");
 				user.setEmail(user.getFirstname());
 				user.setPassword(user.getFirstname());
 				user.setRole(role);

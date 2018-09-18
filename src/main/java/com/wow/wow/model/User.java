@@ -29,6 +29,8 @@ public class User {
 	private @NotNull String email;
 
 	private @NotNull String password;
+	
+	private @NotNull String phonenum;
 
 	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user"), inverseJoinColumns = @JoinColumn(name = "role"))
@@ -45,6 +47,7 @@ public class User {
 		this.password = user.getPassword();
 		this.role = user.getRole();
 		this.id = user.getId();
+		this.phonenum=user.getPhonenum();
 	}
 
 	public String getFirstname() {
@@ -93,6 +96,14 @@ public class User {
 
 	public void setRole(Set<Role> role) {
 		this.role = role;
+	}
+
+	public String getPhonenum() {
+		return phonenum;
+	}
+
+	public void setPhonenum(String phonenum) {
+		this.phonenum = phonenum;
 	}
 
 }

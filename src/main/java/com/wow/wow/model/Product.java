@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 
 import lombok.NoArgsConstructor;
@@ -28,6 +29,9 @@ public class Product {
 	private @NotNull String size;
 	
 	private @NotNull String type;
+	
+	@Lob
+	private @NotNull byte[] image;
 
 	public String getName() {
 		return name;
@@ -85,6 +89,12 @@ public class Product {
 		this.type = type;
 	}
 	
-	
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 
 }
