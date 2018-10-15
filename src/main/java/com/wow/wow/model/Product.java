@@ -4,34 +4,41 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
+@Table
 public class Product {
 
 	@Id
 	@GeneratedValue
+	@Column
 	private Long id;
 
+	@Column
 	private @NotNull String name;
 
-	private @NotNull String description;
+	@Column
+	private String description;
 
 	@Column(unique = true)
 	private @NotNull String code;
 
+	@Column
 	private @NotNull double price;
 
+	@Column
 	private @NotNull String size;
-	
-	private @NotNull String type;
-	
-	@Lob
-	private @NotNull byte[] image;
+
+	@Column
+	private @NotNull String category;
+
+	@Column(name="SUBTYPE")
+	private @NotNull String subType;
 
 	public String getName() {
 		return name;
@@ -81,20 +88,22 @@ public class Product {
 		this.size = size;
 	}
 
-	public String getType() {
-		return type;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getSubType() {
+		return subType;
+	}
+
+	public void setSubType(String subType) {
+		this.subType = subType;
 	}
 	
-	public byte[] getImage() {
-		return image;
-	}
-
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
+	
 
 }

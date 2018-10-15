@@ -7,10 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Payment {
+public class Orders {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     private String email;
     private String name;
@@ -19,9 +19,9 @@ public class Payment {
     private Double amount;
     private PaymentStatus paymentStatus;
     private Date paymentDate;
-    private String txnId;
+    private String transactionId;
     private String mihpayId;
-    private PaymentMode mode;
+    private PaymentMode paymentMode;
     
 	public Long getId() {
 		return id;
@@ -71,23 +71,23 @@ public class Payment {
 	public void setPaymentDate(Date paymentDate) {
 		this.paymentDate = paymentDate;
 	}
-	public String getTxnId() {
-		return txnId;
-	}
-	public void setTxnId(String txnId) {
-		this.txnId = txnId;
-	}
 	public String getMihpayId() {
 		return mihpayId;
 	}
 	public void setMihpayId(String mihpayId) {
 		this.mihpayId = mihpayId;
 	}
-	public PaymentMode getMode() {
-		return mode;
+	public String getTransactionId() {
+		return transactionId;
 	}
-	public void setMode(PaymentMode mode) {
-		this.mode = mode;
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId;
+	}
+	public PaymentMode getPaymentMode() {
+		return paymentMode;
+	}
+	public void setPaymentMode(PaymentMode paymentMode) {
+		this.paymentMode = paymentMode;
 	}
     
     

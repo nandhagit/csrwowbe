@@ -1,5 +1,7 @@
 package com.wow.wow.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,18 +12,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wow.wow.model.Orders;
 import com.wow.wow.model.PaymentCallback;
 import com.wow.wow.model.PaymentDetail;
 import com.wow.wow.model.PaymentMode;
+import com.wow.wow.repository.OrdersRepository;
 import com.wow.wow.service.PaymentService;
 
 @RestController
 @RequestMapping("/payment")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200")
 public class PaymentController {
 
     @Autowired
     private PaymentService paymentService;
+    
+    @Autowired
+    private OrdersRepository orderRepo;
 
     @PostMapping(path = "/payment-details")
     public @ResponseBody PaymentDetail proceedPayment(@RequestBody PaymentDetail paymentDetail){
@@ -29,13 +36,17 @@ public class PaymentController {
     }
 
     @RequestMapping(path = "/payment-response", method = RequestMethod.POST)
-    public @ResponseBody String payuCallback(@RequestParam String mihpayid, @RequestParam String status, @RequestParam PaymentMode mode, @RequestParam String txnid, @RequestParam String hash){
+    public void payuCallback(@RequestParam String mihpayid, @RequestParam String status, @RequestParam PaymentMode mode, @RequestParam String txnid, @RequestParam String hash){
         PaymentCallback paymentCallback = new PaymentCallback();
         paymentCallback.setMihpayid(mihpayid);
         paymentCallback.setTxnid(txnid);
         paymentCallback.setMode(mode);
         paymentCallback.setHash(hash);
         paymentCallback.setStatus(status);
-        return paymentService.payuCallback(paymentCallback);
+        paymentService.payuCallback(paymentCallback);
+    }
+    @RequestMapping(path = "/orders", method = RequestMethod.GET)
+    public List<Orders> getAllOrders(){
+        return orderRepo.findAll();
     }
 }

@@ -7,8 +7,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.wow.wow.model.Cart;
 
-@RepositoryRestResource
+@RepositoryRestResource(path="/cart")
 public interface CartRepository extends JpaRepository<Cart, Long> {
-	List<Cart> findByUserId(Long userId);
-	Long countByUserId(Long userId);
+	Cart findByUser(Long userId);
+	Long countByUser(Long userId);
 }

@@ -1,4 +1,4 @@
-package com.wow.wow.model;
+/*package com.wow.wow.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,11 +8,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class WowUserDetails extends User implements UserDetails {
+public class WowUserDetails extends WowUser implements UserDetails {
 
-	/**
+	*//**
 	 * 
-	 */
+	 *//*
 	private static final long serialVersionUID = 2267233991938245953L;
 
 	@Override
@@ -24,7 +24,7 @@ public class WowUserDetails extends User implements UserDetails {
 		return lst;
 	}
 
-	public WowUserDetails(User user) {
+	public WowUserDetails(WowUser user) {
 		super(user);
 	}
 
@@ -59,3 +59,4 @@ public class WowUserDetails extends User implements UserDetails {
 	}
 
 }
+*/
