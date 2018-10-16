@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wow.wow.model.CartItem;
 import com.wow.wow.model.Category;
+import com.wow.wow.model.PaymentCallback;
+import com.wow.wow.model.PaymentMode;
 import com.wow.wow.model.Product;
 import com.wow.wow.model.ProductSubCategory;
 import com.wow.wow.repository.CategoryRepository;
@@ -58,7 +61,14 @@ public class ProductController {
 	public Collection<ProductSubCategory> getSubCategories(@RequestParam("category") Long category) {
 		Category cat = catRepo.findById(category).orElse(null);
 		return subRepo.findAllByCategory(cat);
-
 	}
+	
+	@RequestMapping(path = "/saveproduct", method = RequestMethod.POST)
+    public void saveProduct(@RequestBody Product product){
+		ProductSubCategory subCat = subRepo.findById(Long.parseLong(product.getSubType())).orElse(null);
+		product.setSubType(subCat.getSubType());
+		product.setCategory(subCat.getCategory().getName());
+		productrepo.save(product);
+    }
 	
 }

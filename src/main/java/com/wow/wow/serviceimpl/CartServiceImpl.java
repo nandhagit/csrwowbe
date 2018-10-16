@@ -121,7 +121,12 @@ public class CartServiceImpl implements CartService {
 	}
 
 	public WowUser getUser() {
-		return userRepo.findById(UserUtil.getCurrentUser().getId()).orElse(null);
+		JwtUser jwtUser = UserUtil.getCurrentUser();
+		if (jwtUser != null) {
+			return userRepo.findById(jwtUser.getId()).orElse(null);
+		}
+		return null;
+		
 	}
 
 }
