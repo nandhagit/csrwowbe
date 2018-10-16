@@ -4,36 +4,20 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity
-@Table
-public class Orders {
+public class OrderDTO {
 
-	@Id
-	@GeneratedValue
-	@Column
 	private Long id;
-	@Column(name = "USER_ID")
-	private Long wowUser;
-	@Column(name = "PRODUCT_INFO")
 	private String productInfo;
-	@Column
 	private Double amount;
-	@Column(name = "PAYMENT_STATUS")
 	private String paymentStatus;
-	@Column(name = "PAYMENT_DATE")
 	private Date paymentDate;
-	@Column(name = "TRANSACTION_ID")
 	private String transactionId;
-	@Column(name = "MIH_PAY_ID")
 	private String mihpayId;
-	@Column(name = "PAYMENT_MODE")
 	private String paymentMode;
 
 	public Long getId() {
@@ -42,14 +26,6 @@ public class Orders {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getUser() {
-		return wowUser;
-	}
-
-	public void setUser(Long user) {
-		this.wowUser = user;
 	}
 
 	public String getProductInfo() {
@@ -105,6 +81,19 @@ public class Orders {
 	}
 
 	public void setPaymentMode(String paymentMode) {
+		this.paymentMode = paymentMode;
+	}
+
+	public OrderDTO(Long id, String productInfo, Double amount, String paymentStatus, Date paymentDate,
+			String transactionId, String mihpayId, String paymentMode) {
+		super();
+		this.id = id;
+		this.productInfo = productInfo;
+		this.amount = amount;
+		this.paymentStatus = paymentStatus;
+		this.paymentDate = paymentDate;
+		this.transactionId = transactionId;
+		this.mihpayId = mihpayId;
 		this.paymentMode = paymentMode;
 	}
 

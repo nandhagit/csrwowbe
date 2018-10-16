@@ -19,6 +19,7 @@ import com.wow.wow.repository.ProductRepository;
 import com.wow.wow.repository.WowUserRepository;
 import com.wow.wow.security.JwtUser;
 import com.wow.wow.service.CartService;
+import com.wow.wow.utility.UserUtil;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -120,12 +121,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	public WowUser getUser() {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth.getPrincipal().equals("anonymousUser")) {
-			return null;
-		}
-		return userRepo.findById(((JwtUser) auth.getPrincipal()).getId()).orElse(null);
-
+		return userRepo.findById(UserUtil.getCurrentUser().getId()).orElse(null);
 	}
 
 }

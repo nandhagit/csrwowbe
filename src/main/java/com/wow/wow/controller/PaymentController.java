@@ -40,13 +40,13 @@ public class PaymentController {
         PaymentCallback paymentCallback = new PaymentCallback();
         paymentCallback.setMihpayid(mihpayid);
         paymentCallback.setTxnid(txnid);
-        paymentCallback.setMode(mode);
+        paymentCallback.setMode(mode.toString());
         paymentCallback.setHash(hash);
         paymentCallback.setStatus(status);
         paymentService.payuCallback(paymentCallback);
     }
     @RequestMapping(path = "/orders", method = RequestMethod.GET)
     public List<Orders> getAllOrders(){
-        return orderRepo.findAll();
+        return paymentService.getOrders();
     }
 }

@@ -4,7 +4,7 @@ public class PaymentCallback {
 
     private String txnid;
     private String mihpayid;
-    private PaymentMode mode;
+    private String mode;
     private String status;
     private String hash;
 	public String getTxnid() {
@@ -19,10 +19,10 @@ public class PaymentCallback {
 	public void setMihpayid(String mihpayid) {
 		this.mihpayid = mihpayid;
 	}
-	public PaymentMode getMode() {
+	public String getMode() {
 		return mode;
 	}
-	public void setMode(PaymentMode mode) {
+	public void setMode(String mode) {
 		this.mode = mode;
 	}
 	public String getStatus() {
