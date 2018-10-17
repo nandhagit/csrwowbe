@@ -46,7 +46,12 @@ public class PaymentController {
         paymentService.payuCallback(paymentCallback);
     }
     @RequestMapping(path = "/orders", method = RequestMethod.GET)
-    public List<Orders> getAllOrders(){
+    public List<Orders> getUserOrders(){
         return paymentService.getOrders();
+    }
+    
+    @RequestMapping(path = "/admin/orders", method = RequestMethod.GET)
+    public List<Orders> getAllOrders(){
+        return paymentService.getAllOrders();
     }
 }

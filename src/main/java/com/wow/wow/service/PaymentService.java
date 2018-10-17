@@ -12,5 +12,7 @@ public interface PaymentService {
     public String payuCallback(PaymentCallback paymentResponse) ;
     
     public List<Orders> getOrders();
+    
+    public List<Orders> getAllOrders();
 
 }

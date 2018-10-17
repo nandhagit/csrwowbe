@@ -74,7 +74,12 @@ public class PaymentServiceImpl implements PaymentService {
     
 	@Override
 	public List<Orders> getOrders() {
-		return orderRepo.findByWowUser(1L);
+		return orderRepo.findByWowUser(UserUtil.getCurrentUser().getId());
+	}
+
+	@Override
+	public List<Orders> getAllOrders() {
+		return orderRepo.findAll();
 	}
     
     
