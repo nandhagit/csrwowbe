@@ -26,7 +26,7 @@ public class WowUser {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
-    @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
+    @SequenceGenerator(initialValue=10, name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
     private Long id;
 
     @Column(name = "USERNAME", length = 50, unique = true)
@@ -62,6 +62,15 @@ public class WowUser {
     @Temporal(TemporalType.TIMESTAMP)
     @NotNull
     private Date lastPasswordResetDate;
+    
+    @Column(name = "PHONENUMBER")
+    @NotNull
+    private Long phone;
+    
+    @Column(name = "DATEOFBIRTH")
+    @Temporal(TemporalType.TIMESTAMP)
+    @NotNull
+    private Date dob;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -141,4 +150,22 @@ public class WowUser {
     public void setLastPasswordResetDate(Date lastPasswordResetDate) {
         this.lastPasswordResetDate = lastPasswordResetDate;
     }
+
+	public Long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+    
+    
 }
