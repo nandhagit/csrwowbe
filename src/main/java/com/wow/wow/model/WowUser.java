@@ -19,6 +19,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "WOWUSER")
 public class WowUser {
@@ -73,6 +75,7 @@ public class WowUser {
     private Date dob;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("users")
     @JoinTable(
             name = "USER_AUTHORITY",
             joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},

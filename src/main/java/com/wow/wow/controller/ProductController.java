@@ -1,7 +1,6 @@
 package com.wow.wow.controller;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wow.wow.model.CartItem;
 import com.wow.wow.model.Category;
-import com.wow.wow.model.PaymentCallback;
-import com.wow.wow.model.PaymentMode;
 import com.wow.wow.model.Product;
 import com.wow.wow.model.ProductSubCategory;
 import com.wow.wow.repository.CategoryRepository;
@@ -42,11 +38,6 @@ public class ProductController {
 		return productrepo.findAll();
 	}
 
-	@RequestMapping(value = "/filterproduct", method = RequestMethod.GET)
-	public Collection<Product> filterByType(@RequestParam("filterlist") List<String> filterList) {
-		return productrepo.findByCategoryIn(filterList);
-	}
-	
 	@GetMapping("/getcategory")
 	public Collection<Category> getCategory() {
 		return catRepo.findAll();

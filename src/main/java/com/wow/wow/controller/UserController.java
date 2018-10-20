@@ -1,11 +1,11 @@
 package com.wow.wow.controller;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wow.wow.model.WowUser;
@@ -23,28 +23,17 @@ public class UserController {
 	public void saveUser(@RequestBody WowUser user) {
 		userService.addUser(user);
 	}
-
-	/*
-	 * @GetMapping("/user")
-	 * 
-	 * @ResponseBody
-	 * 
-	 * @CrossOrigin(origins = "http://localhost:4200") public Principal
-	 * user(Principal user) { return user; }
-	 */
-
-	@RequestMapping(value = "/signin", method = RequestMethod.POST)
-	public String user(@RequestBody String credentials) {
-		JSONObject credential = new JSONObject(credentials);
-		System.out.println(credential);
-		JSONObject obj = new JSONObject();
-		String email = credential.get("email").toString();
-		String password = credential.get("password").toString();
-		if (email.equalsIgnoreCase("dany") && password.equalsIgnoreCase("dany")) {
-			obj.put("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImRhbnkiLCJpYXQiOjE3MTYyMzkwMjJ9.sEkHcK6jtiE7KD-0Wv26HQUsunfE71dG355EacNz8Gc");
-			return obj.toString();
-		}
-		return null;
+	
+	@RequestMapping(value = "/getuser", method = RequestMethod.GET)
+	public WowUser getUser(@RequestParam("userid") Long userId) {
+		return userService.getUserById(userId);
 	}
+	
+	@RequestMapping(value = "/getcurrentuser", method = RequestMethod.GET)
+	public WowUser getCurrentUser() {
+		return userService.getUser();
+	}
+	
+	
 
 }

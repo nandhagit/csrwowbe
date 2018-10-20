@@ -12,6 +12,9 @@ public class PaymentDetail {
     private String sUrl;
     private String fUrl;
     private String key;
+    private Long cart;
+    private Long address;
+    
 	public String getEmail() {
 		return email;
 	}
@@ -71,6 +74,18 @@ public class PaymentDetail {
 	}
 	public void setKey(String key) {
 		this.key = key;
+	}
+	public Long getCart() {
+		return cart;
+	}
+	public void setCart(Long cart) {
+		this.cart = cart;
+	}
+	public Long getAddress() {
+		return address;
+	}
+	public void setAddress(Long address) {
+		this.address = address;
 	}
     
     

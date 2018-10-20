@@ -15,6 +15,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "AUTHORITY")
 public class Authority {
@@ -31,6 +33,7 @@ public class Authority {
     private AuthorityName name;
 
     @ManyToMany(mappedBy = "authorities", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("authorities")
     private List<WowUser> users;
 
     public Long getId() {
