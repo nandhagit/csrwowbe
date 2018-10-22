@@ -1,6 +1,7 @@
 package com.wow.wow.serviceimpl;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.json.JSONObject;
@@ -50,7 +51,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public Long addToCart(String jsonUserItem) {
+	public Cart addToCart(String jsonUserItem) {
 		JSONObject json = new JSONObject(jsonUserItem);
 		String productId = json.get("product").toString();
 		String cartId = json.get("cart").toString();
@@ -70,14 +71,13 @@ public class CartServiceImpl implements CartService {
 			cartItem.setProduct(product);
 			cartItemRepo.save(cartItem);
 			cart.getCartItems().add(cartItem);
-			cart.setUser(getUser());
 		}
 		cartRepo.save(cart);
-		return cart.getId();
+		return cart;
 	}
 
 	@Override
-	public void removeFromCart(String jsonUserItem) {
+	public Cart removeFromCart(String jsonUserItem) {
 
 		JSONObject json = new JSONObject(jsonUserItem);
 		String productId = json.get("product").toString();
@@ -102,7 +102,7 @@ public class CartServiceImpl implements CartService {
 			cart.getCartItems().remove(itemToRemove);
 		}
 		cartRepo.save(cart);
-
+		return cart;
 	}
 
 	@Override
@@ -124,7 +124,42 @@ public class CartServiceImpl implements CartService {
 			return userRepo.findById(jwtUser.getId()).orElse(null);
 		}
 		return null;
-		
+
+	}
+
+	/**
+	 * merges the cart with already exist cart if any and deletes the anonymous cart
+	 * Scenario: If user adds items before logging in and logs in after adding few
+	 * items.
+	 */
+	@Override
+	public Cart mergeCart(Long cartId) {
+		Cart anonymousCart = cartRepo.findById(cartId).orElse(null);
+		WowUser user = getUser();
+		Cart userCart = user.getCart();
+		if (userCart != null) {
+			Set<CartItem> cartItem = new HashSet<>();
+			for (CartItem c : anonymousCart.getCartItems()) {
+				CartItem item = new CartItem();
+				item.setCount(c.getCount());
+				item.setProduct(c.getProduct());
+				cartItem.add(item);
+			}
+			userCart.getCartItems().addAll(cartItem);
+			cartItemRepo.saveAll(cartItem);
+			userRepo.save(user);
+			cartRepo.delete(anonymousCart);
+			return userCart;
+		} else {
+			user.setCart(anonymousCart);
+			userRepo.save(user);
+			return anonymousCart;
+		}
+	}
+
+	@Override
+	public Cart getCart(Long cartId) {
+		return cartRepo.findById(cartId).orElse(null);
 	}
 
 }

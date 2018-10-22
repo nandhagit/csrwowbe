@@ -7,6 +7,4 @@ import com.wow.wow.model.Cart;
 
 @RepositoryRestResource(path="/cart")
 public interface CartRepository extends JpaRepository<Cart, Long> {
-	//Cart findByUser(Long userId);
-	Long countByUser(Long userId);
 }

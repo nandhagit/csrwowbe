@@ -34,13 +34,13 @@ public class CartController {
 	}
 
 	@RequestMapping(value = "/addtocart", method = RequestMethod.POST)
-	public void addtoCart(@RequestBody String json) {
-		cartService.addToCart(json);
+	public Cart addtoCart(@RequestBody String json) {
+		return cartService.addToCart(json);
 	}
 
 	@RequestMapping(value = "/removefromcart", method = RequestMethod.POST)
-	public void removefromcart(@RequestBody String json) {
-		cartService.removeFromCart(json);
+	public Cart removefromcart(@RequestBody String json) {
+		return cartService.removeFromCart(json);
 	}
 
 	@RequestMapping(value = "/createCart", method = RequestMethod.GET)
@@ -51,5 +51,15 @@ public class CartController {
 	@RequestMapping(value = "/clearCart", method = RequestMethod.GET)
 	public void clearCart(@RequestParam("cart") Long cartId) {
 		cartService.clearCart(cartId);
+	}
+	
+	@RequestMapping(value = "/mergecart", method = RequestMethod.GET)
+	public Cart mergeCartOnLogin(@RequestParam("cart") Long cartId) {
+		return cartService.mergeCart(cartId);
+	}
+	
+	@RequestMapping(value = "/getcart", method = RequestMethod.GET)
+	public Cart getCart(@RequestParam("cart") Long cartId) {
+		return cartService.getCart(cartId);
 	}
 }
