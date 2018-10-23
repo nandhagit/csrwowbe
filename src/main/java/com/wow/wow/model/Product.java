@@ -1,10 +1,15 @@
 package com.wow.wow.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -42,6 +47,11 @@ public class Product {
 
 	@Column(name="SUBTYPE")
 	private @NotNull String subType;
+	
+	@OneToMany
+	@JoinTable(name = "product_rating", joinColumns = {@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "RATING_ID", referencedColumnName = "ID")})
+	private Set<Rating> ratings;
 
 	public String getName() {
 		return name;
@@ -105,6 +115,14 @@ public class Product {
 
 	public void setSubType(String subType) {
 		this.subType = subType;
+	}
+
+	public Set<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(Set<Rating> ratings) {
+		this.ratings = ratings;
 	}
 	
 	

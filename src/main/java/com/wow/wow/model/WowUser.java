@@ -53,7 +53,7 @@ public class WowUser {
     @Size(min = 4, max = 50)
     private String lastname;
 
-    @Column(name = "EMAIL", length = 50)
+    @Column(name = "EMAIL", length = 50, unique=true)
     @NotNull
     @Size(min = 4, max = 50)
     private String email;
@@ -67,7 +67,7 @@ public class WowUser {
     @NotNull
     private Date lastPasswordResetDate;
     
-    @Column(name = "PHONENUMBER")
+    @Column(name = "PHONENUMBER", unique=true)
     @NotNull
     private Long phone;
     

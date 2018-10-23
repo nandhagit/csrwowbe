@@ -1,16 +1,21 @@
 package com.wow.wow.model;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class CartItem {
 
 	@Id
-	@GeneratedValue
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cart_item_seq")
+    @SequenceGenerator(name = "cart_item_seq", sequenceName = "cart_item_seq", allocationSize = 1)
 	private Long id;
 
 	@ManyToOne(cascade = { CascadeType.ALL, CascadeType.MERGE })
