@@ -51,8 +51,8 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public Cart addToCart(String jsonUserItem) {
-		JSONObject json = new JSONObject(jsonUserItem);
+	public Cart addToCart(String jsonObject) {
+		JSONObject json = new JSONObject(jsonObject);
 		String productId = json.get("product").toString();
 		String cartId = json.get("cart").toString();
 		Product product = productRepo.findById(Long.valueOf(productId)).orElse(null);

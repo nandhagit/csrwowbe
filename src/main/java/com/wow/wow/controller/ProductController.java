@@ -62,4 +62,9 @@ public class ProductController {
 		productrepo.save(product);
     }
 	
+	@GetMapping("/product")
+	public Product getProduct(@RequestParam("id") Long productId) {
+		return productrepo.findById(productId).orElse(null);
+	}
+	
 }

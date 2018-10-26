@@ -21,6 +21,9 @@ public class Rating {
 
 	@Column
 	private int rating;
+	
+	@Column
+	private String title;
 
 	@Column
 	private String review;
@@ -59,5 +62,14 @@ public class Rating {
 	public void setUser(Long user) {
 		this.user = user;
 	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
 
 }
