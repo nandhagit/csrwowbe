@@ -21,42 +21,42 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "AUTHORITY")
 public class Authority {
 
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "authority_seq")
-    @SequenceGenerator(name = "authority_seq", sequenceName = "authority_seq", allocationSize = 1)
-    private Long id;
+	@Id
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "authority_seq")
+	@SequenceGenerator(name = "authority_seq", sequenceName = "authority_seq", allocationSize = 1)
+	private Long id;
 
-    @Column(name = "NAME", length = 50)
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private AuthorityName name;
+	@Column(name = "NAME", length = 50)
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	private AuthorityName name;
 
-    @ManyToMany(mappedBy = "authorities", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("authorities")
-    private List<WowUser> users;
+	@ManyToMany(mappedBy = "authorities", fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("authorities")
+	private List<WowUser> users;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public AuthorityName getName() {
-        return name;
-    }
+	public AuthorityName getName() {
+		return name;
+	}
 
-    public void setName(AuthorityName name) {
-        this.name = name;
-    }
+	public void setName(AuthorityName name) {
+		this.name = name;
+	}
 
-    public List<WowUser> getUsers() {
-        return users;
-    }
+	public List<WowUser> getUsers() {
+		return users;
+	}
 
-    public void setUsers(List<WowUser> users) {
-        this.users = users;
-    }
+	public void setUsers(List<WowUser> users) {
+		this.users = users;
+	}
 }

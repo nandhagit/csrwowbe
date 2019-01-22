@@ -20,9 +20,9 @@ import javax.validation.constraints.NotNull;
 public class Orders {
 
 	@Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_seq")
-    @SequenceGenerator(name = "order_seq", sequenceName = "order_seq", allocationSize = 1)
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_seq")
+	@SequenceGenerator(name = "order_seq", sequenceName = "order_seq", allocationSize = 1)
 	private Long id;
 
 	@JoinColumn(name = "USER_ID")

@@ -5,6 +5,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.wow.wow.model.Cart;
 
-@RepositoryRestResource(path="/cart")
+@RepositoryRestResource(path = "/cart")
 public interface CartRepository extends JpaRepository<Cart, Long> {
 }

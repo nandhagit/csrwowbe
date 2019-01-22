@@ -16,9 +16,9 @@ import javax.persistence.SequenceGenerator;
 public class Cart {
 
 	@Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cart_seq")
-    @SequenceGenerator(name = "cart_seq", sequenceName = "cart_seq", allocationSize = 1)
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cart_seq")
+	@SequenceGenerator(name = "cart_seq", sequenceName = "cart_seq", allocationSize = 1)
 	private Long id;
 
 	@OneToMany

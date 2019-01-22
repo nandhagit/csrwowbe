@@ -13,9 +13,9 @@ import javax.persistence.SequenceGenerator;
 public class CartItem {
 
 	@Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cart_item_seq")
-    @SequenceGenerator(name = "cart_item_seq", sequenceName = "cart_item_seq", allocationSize = 1)
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cart_item_seq")
+	@SequenceGenerator(name = "cart_item_seq", sequenceName = "cart_item_seq", allocationSize = 1)
 	private Long id;
 
 	@ManyToOne(cascade = { CascadeType.ALL, CascadeType.MERGE })

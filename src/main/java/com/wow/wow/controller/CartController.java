@@ -52,12 +52,12 @@ public class CartController {
 	public void clearCart(@RequestParam("cart") Long cartId) {
 		cartService.clearCart(cartId);
 	}
-	
+
 	@RequestMapping(value = "/mergecart", method = RequestMethod.GET)
 	public Cart mergeCartOnLogin(@RequestParam("cart") Long cartId) {
 		return cartService.mergeCart(cartId);
 	}
-	
+
 	@RequestMapping(value = "/getcart", method = RequestMethod.GET)
 	public Cart getCart(@RequestParam("cart") Long cartId) {
 		return cartService.getCart(cartId);

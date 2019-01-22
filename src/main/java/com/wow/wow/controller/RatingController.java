@@ -16,10 +16,10 @@ public class RatingController {
 
 	@Autowired
 	RatingService ratingService;
-	
+
 	@RequestMapping(path = "/saveRating", method = RequestMethod.POST)
-    public void saveRating(@RequestBody String json){
+	public void saveRating(@RequestBody String json) {
 		ratingService.saveRating(json);
-    }
-	
+	}
+
 }

@@ -9,9 +9,9 @@ import com.wow.wow.dto.AddressProjection;
 import com.wow.wow.model.Address;
 import com.wow.wow.model.WowUser;
 
-@RepositoryRestResource(path="address")
-public interface AddressRepository extends JpaRepository<Address, Long>{
-	
+@RepositoryRestResource(path = "address")
+public interface AddressRepository extends JpaRepository<Address, Long> {
+
 	List<AddressProjection> findByUser(WowUser user);
 
 }

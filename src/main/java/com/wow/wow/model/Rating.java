@@ -21,14 +21,14 @@ public class Rating {
 
 	@Column
 	private int rating;
-	
+
 	@Column
 	private String title;
 
 	@Column
 	private String review;
-	
-	@Column(name="USER_ID")
+
+	@Column(name = "USER_ID")
 	private @NotNull Long user;
 
 	public Long getId() {
@@ -70,6 +70,5 @@ public class Rating {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
 
 }

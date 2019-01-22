@@ -17,21 +17,21 @@ import com.wow.wow.service.OrderService;
 @CrossOrigin
 public class OrderController {
 
-    @Autowired
-    private OrderService orderService;
-    
-    @RequestMapping(path = "/orders", method = RequestMethod.GET)
-    public List<OrderProjection> getUserOrders(){
-        return orderService.getOrders();
-    }
-    
-    @RequestMapping(path = "/admin/orders", method = RequestMethod.GET)
-    public List<OrderProjection> getAllOrders(){
-        return orderService.getAllOrders();
-    }
-    
-    @RequestMapping(path = "/orderdetail", method = RequestMethod.GET)
-    public OrderProjection getOrderDetail(@RequestParam("orderId") Long orderId){
-        return orderService.getOrderDetail(orderId);
-    }
+	@Autowired
+	private OrderService orderService;
+
+	@RequestMapping(path = "/orders", method = RequestMethod.GET)
+	public List<OrderProjection> getUserOrders() {
+		return orderService.getOrders();
+	}
+
+	@RequestMapping(path = "/admin/orders", method = RequestMethod.GET)
+	public List<OrderProjection> getAllOrders() {
+		return orderService.getAllOrders();
+	}
+
+	@RequestMapping(path = "/orderdetail", method = RequestMethod.GET)
+	public OrderProjection getOrderDetail(@RequestParam("orderId") Long orderId) {
+		return orderService.getOrderDetail(orderId);
+	}
 }

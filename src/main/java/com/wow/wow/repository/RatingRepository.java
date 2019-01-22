@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.wow.wow.model.Rating;
 
-@RepositoryRestResource(path="rating")
-public interface RatingRepository extends JpaRepository<Rating, Long>{
+@RepositoryRestResource(path = "rating")
+public interface RatingRepository extends JpaRepository<Rating, Long> {
 
 }

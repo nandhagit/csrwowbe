@@ -1,4 +1,5 @@
 package com.wow.wow.serviceimpl;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +16,15 @@ import com.wow.wow.utility.UserUtil;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
-    private OrdersRepository orderRepo;
-    
-    @Autowired
-    private WowUserRepository userRepo;
+	@Autowired
+	private OrdersRepository orderRepo;
 
-    @Autowired
-    AddressRepository addressRepo;
-    
+	@Autowired
+	private WowUserRepository userRepo;
+
+	@Autowired
+	AddressRepository addressRepo;
+
 	@Override
 	public List<OrderProjection> getOrders() {
 		return orderRepo.findByUser(getUser());
@@ -33,16 +34,14 @@ public class OrderServiceImpl implements OrderService {
 	public List<OrderProjection> getAllOrders() {
 		return orderRepo.findAllProjectedBy();
 	}
-    
-    private WowUser getUser() {
-    	return userRepo.findById(UserUtil.getCurrentUser().getId()).orElse(null);
-    }
-    
+
+	private WowUser getUser() {
+		return userRepo.findById(UserUtil.getCurrentUser().getId()).orElse(null);
+	}
 
 	@Override
 	public OrderProjection getOrderDetail(Long orderId) {
 		return orderRepo.getById(orderId);
 	}
-
 
 }

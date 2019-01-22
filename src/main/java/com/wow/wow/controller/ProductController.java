@@ -25,10 +25,10 @@ public class ProductController {
 
 	@Autowired
 	ProductRepository productrepo;
-	
+
 	@Autowired
 	CategoryRepository catRepo;
-	
+
 	@Autowired
 	ProductSubCategoryRepository subRepo;
 
@@ -42,29 +42,29 @@ public class ProductController {
 	public Collection<Category> getCategory() {
 		return catRepo.findAll();
 	}
-	
+
 	@GetMapping("/minAndMax")
 	public Object getMinAndMaxPrice() {
 		return productrepo.findMinAndMaxPrice();
 	}
-	
+
 	@RequestMapping(value = "/getSubFilters", method = RequestMethod.GET)
 	public Collection<ProductSubCategory> getSubCategories(@RequestParam("category") Long category) {
 		Category cat = catRepo.findById(category).orElse(null);
 		return subRepo.findAllByCategory(cat);
 	}
-	
+
 	@RequestMapping(path = "/saveproduct", method = RequestMethod.POST)
-    public void saveProduct(@RequestBody Product product){
+	public void saveProduct(@RequestBody Product product) {
 		ProductSubCategory subCat = subRepo.findById(Long.parseLong(product.getSubType())).orElse(null);
 		product.setSubType(subCat.getSubType());
 		product.setCategory(subCat.getCategory().getName());
 		productrepo.save(product);
-    }
-	
+	}
+
 	@GetMapping("/product")
 	public Product getProduct(@RequestParam("id") Long productId) {
 		return productrepo.findById(productId).orElse(null);
 	}
-	
+
 }

@@ -8,8 +8,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import com.wow.wow.model.Category;
 import com.wow.wow.model.ProductSubCategory;
 
-@RepositoryRestResource(path="/subtype")
-public interface ProductSubCategoryRepository extends JpaRepository<ProductSubCategory, Long>{
+@RepositoryRestResource(path = "/subtype")
+public interface ProductSubCategoryRepository extends JpaRepository<ProductSubCategory, Long> {
 	Collection<ProductSubCategory> findAllByCategory(Category category);
 
 }

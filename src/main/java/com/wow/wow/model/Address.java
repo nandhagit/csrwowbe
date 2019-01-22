@@ -13,25 +13,25 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Address {
-	
+
 	@Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq")
-    @SequenceGenerator(name = "address_seq", sequenceName = "address_seq", allocationSize = 1)
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq")
+	@SequenceGenerator(name = "address_seq", sequenceName = "address_seq", allocationSize = 1)
 	private Long id;
-	
+
 	@Column
 	private String address;
-	
+
 	@Column
 	private String state;
-	
+
 	@Column
 	private String city;
-	
+
 	@Column
 	private Long pin;
-	
+
 	@ManyToOne(cascade = { CascadeType.ALL, CascadeType.MERGE })
 	private WowUser user;
 

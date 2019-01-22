@@ -16,9 +16,9 @@ import javax.persistence.Table;
 public class ProductSubCategory {
 
 	@Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sub_category_seq")
-    @SequenceGenerator(name = "sub_category_seq", sequenceName = "sub_category_seq", allocationSize = 1)
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sub_category_seq")
+	@SequenceGenerator(name = "sub_category_seq", sequenceName = "sub_category_seq", allocationSize = 1)
 	private Long id;
 
 	@Column(name = "SUBTYPE")
@@ -51,6 +51,5 @@ public class ProductSubCategory {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-
 
 }

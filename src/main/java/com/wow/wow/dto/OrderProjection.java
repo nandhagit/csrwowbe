@@ -23,7 +23,7 @@ public interface OrderProjection {
 	public CartProjection getCart();
 
 	public AddressProjection getAddress();
-	
+
 	public String getStatus();
 
 }

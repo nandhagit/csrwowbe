@@ -23,7 +23,7 @@ public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
-    @SequenceGenerator(initialValue=10, name = "product_seq", sequenceName = "product_seq", allocationSize = 1)
+	@SequenceGenerator(initialValue = 10, name = "product_seq", sequenceName = "product_seq", allocationSize = 1)
 	@Column
 	private Long id;
 
@@ -45,12 +45,13 @@ public class Product {
 	@Column
 	private @NotNull String category;
 
-	@Column(name="SUBTYPE")
+	@Column(name = "SUBTYPE")
 	private @NotNull String subType;
-	
+
 	@OneToMany
-	@JoinTable(name = "product_rating", joinColumns = {@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID")},
-            inverseJoinColumns = {@JoinColumn(name = "RATING_ID", referencedColumnName = "ID")})
+	@JoinTable(name = "product_rating", joinColumns = {
+			@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
+					@JoinColumn(name = "RATING_ID", referencedColumnName = "ID") })
 	private Set<Rating> ratings;
 
 	public String getName() {
@@ -124,7 +125,5 @@ public class Product {
 	public void setRatings(Set<Rating> ratings) {
 		this.ratings = ratings;
 	}
-	
-	
 
 }

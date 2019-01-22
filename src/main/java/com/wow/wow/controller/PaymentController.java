@@ -20,22 +20,23 @@ import com.wow.wow.service.PaymentService;
 @CrossOrigin
 public class PaymentController {
 
-    @Autowired
-    private PaymentService paymentService;
-    
-    @PostMapping(path = "/payment-details")
-    public @ResponseBody PaymentDetail proceedPayment(@RequestBody PaymentDetail paymentDetail){
-        return paymentService.proceedPayment(paymentDetail);
-    }
+	@Autowired
+	private PaymentService paymentService;
 
-    @RequestMapping(path = "/payment-response", method = RequestMethod.POST)
-    public void payuCallback(@RequestParam String mihpayid, @RequestParam String status, @RequestParam PaymentMode mode, @RequestParam String txnid, @RequestParam String hash){
-        PaymentCallback paymentCallback = new PaymentCallback();
-        paymentCallback.setMihpayid(mihpayid);
-        paymentCallback.setTxnid(txnid);
-        paymentCallback.setMode(mode.toString());
-        paymentCallback.setHash(hash);
-        paymentCallback.setStatus(status);
-        paymentService.payuCallback(paymentCallback);
-    }
+	@PostMapping(path = "/payment-details")
+	public @ResponseBody PaymentDetail proceedPayment(@RequestBody PaymentDetail paymentDetail) {
+		return paymentService.proceedPayment(paymentDetail);
+	}
+
+	@RequestMapping(path = "/payment-response", method = RequestMethod.POST)
+	public void payuCallback(@RequestParam String mihpayid, @RequestParam String status, @RequestParam PaymentMode mode,
+			@RequestParam String txnid, @RequestParam String hash) {
+		PaymentCallback paymentCallback = new PaymentCallback();
+		paymentCallback.setMihpayid(mihpayid);
+		paymentCallback.setTxnid(txnid);
+		paymentCallback.setMode(mode.toString());
+		paymentCallback.setHash(hash);
+		paymentCallback.setStatus(status);
+		paymentService.payuCallback(paymentCallback);
+	}
 }

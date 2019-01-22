@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.wow.wow.dto.UserProjection;
 import com.wow.wow.model.Authority;
 import com.wow.wow.model.WowUser;
 import com.wow.wow.repository.AuthorityRepository;
@@ -39,13 +40,23 @@ public class WowUserServiceImpl implements WowUserService {
 	}
 
 	@Override
-	public WowUser getUserById(Long userId) {
-		return userRepo.findById(userId).orElse(null);
+	public UserProjection getUserById(Long userId) {
+		return userRepo.getById(userId).orElse(null);
 	}
 
 	@Override
-	public WowUser getUser() {
-		return userRepo.findById(UserUtil.getCurrentUser().getId()).orElse(null);
+	public UserProjection getUser() {
+		return userRepo.getById(UserUtil.getCurrentUser().getId()).orElse(null);
+	}
+
+	@Override
+	public boolean isPhoneTaken(Long phoneNumber) {
+		return userRepo.findByPhone(phoneNumber).isPresent();
+	}
+
+	@Override
+	public boolean isEmailTaken(String email) {
+		return userRepo.findByEmail(email).isPresent();
 	}
 
 }

@@ -14,5 +14,5 @@ public class UserUtil {
 		}
 		return (JwtUser) auth.getPrincipal();
 	}
-	
+
 }

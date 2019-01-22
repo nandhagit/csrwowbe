@@ -14,11 +14,11 @@ import com.wow.wow.service.AddressService;
 import com.wow.wow.utility.UserUtil;
 
 @Service
-public class AddressServiceImpl implements AddressService{
-	
+public class AddressServiceImpl implements AddressService {
+
 	@Autowired
 	AddressRepository addressRepo;
-	
+
 	@Autowired
 	WowUserRepository userRepo;
 
@@ -27,7 +27,7 @@ public class AddressServiceImpl implements AddressService{
 		address.setUser(getUser());
 		addressRepo.save(address);
 	}
-	
+
 	private WowUser getUser() {
 		return userRepo.findById(UserUtil.getCurrentUser().getId()).orElse(null);
 	}

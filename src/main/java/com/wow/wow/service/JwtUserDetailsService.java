@@ -13,17 +13,17 @@ import com.wow.wow.security.JwtUserFactory;
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
 
-    @Autowired
-    private WowUserRepository userRepository;
+	@Autowired
+	private WowUserRepository userRepository;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    	WowUser user = userRepository.findByUsername(username);
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		WowUser user = userRepository.findByUsername(username);
 
-        if (user == null) {
-            throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
-        } else {
-            return JwtUserFactory.create(user);
-        }
-    }
+		if (user == null) {
+			throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
+		} else {
+			return JwtUserFactory.create(user);
+		}
+	}
 }

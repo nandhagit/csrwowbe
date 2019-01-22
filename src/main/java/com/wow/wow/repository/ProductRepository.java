@@ -13,11 +13,13 @@ import com.wow.wow.model.Product;
 @RepositoryRestResource
 @CrossOrigin(origins = "http://localhost:4200")
 public interface ProductRepository extends JpaRepository<Product, Long> {
-	
+
 	List<Product> findByName(@Param("name") String name);
+
 	List<Product> findByCategoryIn(List<String> type);
+
 	@Query("select min(price), max(price) from Product")
 	Object findMinAndMaxPrice();
-	//@Query("select min(price) from Product")
-	//Long findMinPrice();
+	// @Query("select min(price) from Product")
+	// Long findMinPrice();
 }

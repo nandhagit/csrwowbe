@@ -20,15 +20,15 @@ public class AddressController {
 
 	@Autowired
 	AddressService addressService;
-	
+
 	@RequestMapping(path = "/saveaddress", method = RequestMethod.POST)
-    public void saveAddress(@RequestBody Address address){
+	public void saveAddress(@RequestBody Address address) {
 		addressService.saveAddress(address);
-    }
-	
+	}
+
 	@RequestMapping(path = "/getaddress", method = RequestMethod.GET)
-    public List<AddressProjection> getLoggedInUserAddress(){
+	public List<AddressProjection> getLoggedInUserAddress() {
 		return addressService.getAddress();
-    }
-	
+	}
+
 }
