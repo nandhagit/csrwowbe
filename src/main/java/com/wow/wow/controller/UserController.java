@@ -16,7 +16,7 @@ import com.wow.wow.security.WowUserService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/wow")
+//@RequestMapping("/wow")
 public class UserController {
 
 	@Autowired

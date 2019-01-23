@@ -20,7 +20,7 @@ import com.wow.wow.repository.ProductSubCategoryRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/wow")
+//@RequestMapping("/wow")
 public class ProductController {
 
 	@Autowired

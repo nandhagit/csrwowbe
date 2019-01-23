@@ -11,7 +11,7 @@ import com.wow.wow.security.WowUserService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/wow")
+//@RequestMapping("/wow")
 public class ValidatorController {
 
 	@Autowired

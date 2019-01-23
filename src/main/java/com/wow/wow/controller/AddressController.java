@@ -15,7 +15,7 @@ import com.wow.wow.service.AddressService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/wow")
+//@RequestMapping("/wow")
 public class AddressController {
 
 	@Autowired

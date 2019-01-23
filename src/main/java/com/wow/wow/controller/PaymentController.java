@@ -16,7 +16,7 @@ import com.wow.wow.model.PaymentMode;
 import com.wow.wow.service.PaymentService;
 
 @RestController
-@RequestMapping("/payment")
+//@RequestMapping("/payment")
 @CrossOrigin
 public class PaymentController {
 

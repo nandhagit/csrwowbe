@@ -47,6 +47,9 @@ public class Product {
 
 	@Column(name = "SUBTYPE")
 	private @NotNull String subType;
+	
+	@Column(name = "IMAGE_URL")
+	private @NotNull String imageURL;
 
 	@OneToMany
 	@JoinTable(name = "product_rating", joinColumns = {
@@ -126,4 +129,12 @@ public class Product {
 		this.ratings = ratings;
 	}
 
+	public String getImageURL() {
+		return imageURL;
+	}
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+	
 }
