@@ -50,7 +50,7 @@ public class PaymentController {
 
 		RazorpayClient razorpay = null;
 		try {
-			razorpay = new RazorpayClient("rzp_test_yJuvKJouFP0Z3tbDtR", "IUvCVKivSGTyui5bszp1MC9TnH6w");
+			razorpay = new RazorpayClient("rzp_test_yJuvKJouFP0Z3t", "IUvCVKivSGTyui5bszp1MC9T");
 		} catch (RazorpayException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

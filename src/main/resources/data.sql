@@ -23,25 +23,25 @@ INSERT INTO PRODUCT_SUB_CATEGORY (ID, SUBTYPE, CATEGORY) VALUES (2, 'Shopping Ba
 INSERT INTO PRODUCT_SUB_CATEGORY (ID, SUBTYPE, CATEGORY) VALUES (3, 'Fashion Pouch', 3);
 
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (1, 'US Designed Stole', 'DESC', 'CODE123', 100, '12', 'Stole', 'Designed Stole', 'https://c1.staticflickr.com/4/3754/9731342170_82a9f037c7_c.jpg');
+VALUES (1, 'US Designed Stole', 'DESC', 'CODE123', 100, '12', 'Stole', 'Designed Stole', 'http://localhost:8081/static/stole.png');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (2, 'India Plain Stole', 'DESC', 'CODE124', 200, '12', 'Stole', 'Plain Stole', 'https://c1.staticflickr.com/4/3754/9731342170_82a9f037c7_c.jpg');
+VALUES (2, 'India Plain Stole', 'DESC', 'CODE124', 200, '12', 'Stole', 'Plain Stole', 'http://localhost:8081/static/stole.png');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
 VALUES (3, 'Large Antique Shopping Bag', 'DESC', 'CODE125', 300, '12', 'Bag', 'Shopping Bag', 'https://cdn12.picryl.com/photo/2016/12/31/bag-shopping-weave-0fa6ea-1024.png');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
 VALUES (4, 'Smaller Pouch for great fashion', 'DESC', 'CODE126', 260, '12', 'Pouch', 'Fashion Pouch', 'https://c1.staticflickr.com/3/2294/5715698078_9ff3a1cd2b_b.jpg');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (5, 'Green Awesome Stole', 'DESC', 'CODE1235', 100, '12', 'Stole', 'Designed Stole', 'https://c1.staticflickr.com/4/3754/9731342170_82a9f037c7_c.jpg');
+VALUES (5, 'Green Awesome Stole', 'DESC', 'CODE1235', 100, '12', 'Stole', 'Designed Stole', 'http://localhost:8081/static/stole.png');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (6, 'Traditional Stole', 'DESC', 'CODE1246', 200, '12', 'Stole', 'Plain Stole', 'https://c1.staticflickr.com/4/3754/9731342170_82a9f037c7_c.jpg');
+VALUES (6, 'Traditional Stole', 'DESC', 'CODE1246', 200, '12', 'Stole', 'Plain Stole', 'http://localhost:8081/static/stole.png');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
 VALUES (7, 'Leather Shopping Bag', 'DESC', 'CODE1257', 300, '12', 'Bag', 'Shopping Bag', 'https://cdn12.picryl.com/photo/2016/12/31/bag-shopping-weave-0fa6ea-1024.png');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
 VALUES (8, 'Big Pouch', 'DESC', 'CODE1268', 260, '12', 'Pouch', 'Fashion Pouch', 'https://c1.staticflickr.com/3/2294/5715698078_9ff3a1cd2b_b.jpg');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (9, 'Wow Stole', 'DESC', 'CODE1239', 100, '12', 'Stole', 'Designed Stole', 'https://c1.staticflickr.com/4/3754/9731342170_82a9f037c7_c.jpg');
+VALUES (9, 'Wow Stole', 'DESC', 'CODE1239', 100, '12', 'Stole', 'Designed Stole', 'http://localhost:8081/static/stole2.png');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (10, 'Wow Plain Stole', 'DESC', 'CODE12410', 200, '12', 'Stole', 'Plain Stole', 'https://c1.staticflickr.com/4/3754/9731342170_82a9f037c7_c.jpg');
+VALUES (10, 'Wow Plain Stole', 'DESC', 'CODE12410', 200, '12', 'Stole', 'Plain Stole', 'http://localhost:8081/static/stole2.png');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
 VALUES (11, 'Big bag for shopping', 'DESC', 'CODE12511', 300, '12', 'Bag', 'Shopping Bag', 'https://cdn12.picryl.com/photo/2016/12/31/bag-shopping-weave-0fa6ea-1024.png');
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
