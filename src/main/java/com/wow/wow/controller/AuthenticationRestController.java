@@ -28,6 +28,7 @@ import com.wow.wow.service.JwtAuthenticationResponse;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/wow")
 public class AuthenticationRestController {
 
 	@Value("${jwt.header}")

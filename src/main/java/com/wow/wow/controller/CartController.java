@@ -16,7 +16,7 @@ import com.wow.wow.service.CartService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-//@RequestMapping("/wow")
+@RequestMapping("/wow")
 public class CartController {
 
 	@Autowired

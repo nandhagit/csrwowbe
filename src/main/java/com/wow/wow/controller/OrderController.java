@@ -13,7 +13,7 @@ import com.wow.wow.dto.OrderProjection;
 import com.wow.wow.service.OrderService;
 
 @RestController
-//@RequestMapping("/wow")
+@RequestMapping("/wow")
 @CrossOrigin
 public class OrderController {
 
