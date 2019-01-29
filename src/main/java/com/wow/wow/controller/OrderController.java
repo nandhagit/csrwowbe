@@ -3,7 +3,6 @@ package com.wow.wow.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,8 +12,6 @@ import com.wow.wow.dto.OrderProjection;
 import com.wow.wow.service.OrderService;
 
 @RestController
-@RequestMapping("/wow")
-@CrossOrigin
 public class OrderController {
 
 	@Autowired

@@ -1,7 +1,7 @@
 package com.wow.wow.model;
 
 public class PaymentDetail {
-
+	
 	private String email;
 	private String name;
 	private String phone;

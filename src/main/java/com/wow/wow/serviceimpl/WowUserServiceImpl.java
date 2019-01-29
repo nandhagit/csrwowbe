@@ -32,7 +32,7 @@ public class WowUserServiceImpl implements WowUserService {
 	public void addUser(WowUser user) {
 		user.setUsername(String.valueOf(user.getPhone()));
 		user.setEnabled(true);
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setSigninpassword(passwordEncoder.encode(user.getSigninpassword()));
 		user.setLastPasswordResetDate(new Date());
 		List<Authority> authority = authRepo.findAllById(Arrays.asList(1L));
 		user.setAuthorities(authority);

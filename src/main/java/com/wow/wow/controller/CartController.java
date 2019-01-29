@@ -3,10 +3,10 @@ package com.wow.wow.controller;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,50 +15,48 @@ import com.wow.wow.model.CartItem;
 import com.wow.wow.service.CartService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/wow")
 public class CartController {
 
 	@Autowired
 	private CartService cartService;
 
-	@RequestMapping(value = "/getcartitems", method = RequestMethod.GET)
+	@GetMapping("/cart-items")
 	public Collection<CartItem> getCartItem(@RequestParam("cart") Long cartId) {
 		return cartService.getCartItems(cartId);
 
 	}
 
-	@RequestMapping(value = "/getcartcount", method = RequestMethod.GET)
+	@GetMapping("/cart-count")
 	public int getCartCount(@RequestParam("cart") Long cartId) {
 		return cartService.getCartCount(cartId);
 	}
 
-	@RequestMapping(value = "/addtocart", method = RequestMethod.POST)
+	@PostMapping("/cart-item")
 	public Cart addtoCart(@RequestBody String json) {
 		return cartService.addToCart(json);
 	}
 
-	@RequestMapping(value = "/removefromcart", method = RequestMethod.POST)
+	@PostMapping("/remove/cart-item")
 	public Cart removefromcart(@RequestBody String json) {
 		return cartService.removeFromCart(json);
 	}
 
-	@RequestMapping(value = "/createCart", method = RequestMethod.GET)
+	@PostMapping("/cart")
 	public Cart createCart() {
 		return cartService.createCart();
 	}
 
-	@RequestMapping(value = "/clearCart", method = RequestMethod.GET)
+	@GetMapping("/clear-cart")
 	public void clearCart(@RequestParam("cart") Long cartId) {
 		cartService.clearCart(cartId);
 	}
 
-	@RequestMapping(value = "/mergecart", method = RequestMethod.GET)
+	@GetMapping("/merge-cart")
 	public Cart mergeCartOnLogin(@RequestParam("cart") Long cartId) {
 		return cartService.mergeCart(cartId);
 	}
 
-	@RequestMapping(value = "/getcart", method = RequestMethod.GET)
+	@GetMapping("/cart")
 	public Cart getCart(@RequestParam("cart") Long cartId) {
 		return cartService.getCart(cartId);
 	}

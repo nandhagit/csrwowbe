@@ -16,7 +16,7 @@ import com.wow.wow.service.StorageService;
 @Service
 public class StorageServiceImpl implements StorageService {
 
-	private final Path rootLocation = Paths.get("C:\\Users\\c_nandba\\Desktop\\csrimages");
+	private final Path rootLocation = Paths.get("G:\\CSR PROJECT\\images");
 
 	@Override
 	public void store(MultipartFile file) throws Exception {

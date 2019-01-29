@@ -41,7 +41,7 @@ public class WowUser {
 	@Column(name = "PASSWORD", length = 100)
 	@NotNull
 	@Size(min = 4, max = 100)
-	private String password;
+	private String signinpassword;
 
 	@Column(name = "FIRSTNAME", length = 50)
 	@NotNull
@@ -101,14 +101,6 @@ public class WowUser {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getFirstname() {
@@ -182,5 +174,15 @@ public class WowUser {
 	public void setCart(Cart cart) {
 		this.cart = cart;
 	}
+
+	public String getSigninpassword() {
+		return signinpassword;
+	}
+
+	public void setSigninpassword(String signinpassword) {
+		this.signinpassword = signinpassword;
+	}
+	
+	
 
 }
