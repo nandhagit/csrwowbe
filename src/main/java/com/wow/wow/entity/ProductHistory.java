@@ -1,9 +1,7 @@
 package com.wow.wow.entity;
 
 import java.util.Date;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,23 +9,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
 @Table
-public class Product {
+public class ProductHistory {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
-	@SequenceGenerator(initialValue = 10, name = "product_seq", sequenceName = "product_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_history_seq")
+	@SequenceGenerator(initialValue = 10, name = "product_history_seq", sequenceName = "product_history_seq", allocationSize = 1)
 	@Column
 	private Long id;
 
@@ -55,20 +50,16 @@ public class Product {
 	@Column(name = "IMAGE_URL")
 	private @NotNull String imageURL;
 
-	@JsonManagedReference
-	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-	/* @JoinColumn(name = "PRODUCT_ID") */
-	private Set<Rating> ratings;
-
-	@Column(name = "CREATED_DATE")
-	private @NotNull Date createdDate;
-
-	@Column(name = "LAST_MODIFIED_DATE")
+	@Column(name = "DATE")
 	private @NotNull Date lastModifiedDate;
 
 	@ManyToOne(optional = false)
-	@JoinColumn(name = "CREATED_BY")
+	@JoinColumn(name = "MODIFIED_BY")
 	private @NotNull WowUser createdBy;
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "PRODUCT_ID")
+	private Product productId;
 
 	public String getName() {
 		return name;
@@ -134,28 +125,12 @@ public class Product {
 		this.subType = subType;
 	}
 
-	public Set<Rating> getRatings() {
-		return ratings;
-	}
-
-	public void setRatings(Set<Rating> ratings) {
-		this.ratings = ratings;
-	}
-
 	public String getImageURL() {
 		return imageURL;
 	}
 
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
-	}
-
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
 	}
 
 	public Date getLastModifiedDate() {
@@ -174,18 +149,12 @@ public class Product {
 		this.createdBy = createdBy;
 	}
 
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", code=" + code + ", price="
-				+ price + ", size=" + size + ", category=" + category + ", subType=" + subType + ", imageURL="
-				+ imageURL + ", ratings=" + ratings + ", createdDate=" + createdDate + ", lastModifiedDate="
-				+ lastModifiedDate + ", createdBy=" + createdBy + ", getName()=" + getName() + ", getDescription()="
-				+ getDescription() + ", getId()=" + getId() + ", getCode()=" + getCode() + ", getPrice()=" + getPrice()
-				+ ", getSize()=" + getSize() + ", getCategory()=" + getCategory() + ", getSubType()=" + getSubType()
-				+ ", getRatings()=" + getRatings() + ", getImageURL()=" + getImageURL() + ", getCreatedDate()="
-				+ getCreatedDate() + ", getLastModifiedDate()=" + getLastModifiedDate() + ", getCreatedBy()="
-				+ getCreatedBy() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+	public Product getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Product productId) {
+		this.productId = productId;
 	}
 
 }

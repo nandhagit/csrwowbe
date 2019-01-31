@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wow.wow.dto.AddressProjection;
+import com.wow.wow.dto.AddressDTO;
 import com.wow.wow.entity.Address;
 import com.wow.wow.service.AddressService;
 
@@ -26,7 +26,7 @@ public class AddressController {
 	}
 
 	@GetMapping(path = "/address")
-	public List<AddressProjection> getLoggedInUserAddress() {
+	public List<AddressDTO> getLoggedInUserAddress() {
 		return addressService.getAddress();
 	}
 

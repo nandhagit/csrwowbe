@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wow.wow.dto.UserProjection;
+import com.wow.wow.dto.UserDTO;
 import com.wow.wow.entity.WowUser;
 import com.wow.wow.security.WowUserService;
 
@@ -26,17 +26,17 @@ public class UserController {
 	}
 
 	@GetMapping("/user")
-	public UserProjection getUser(@RequestParam("userid") Long userId) {
+	public UserDTO getUser(@RequestParam("userid") Long userId) {
 		return userService.getUserById(userId);
 	}
 
 	@GetMapping("/current-user")
-	public UserProjection getCurrentUser() {
+	public UserDTO getCurrentUser() {
 		return userService.getUser();
 	}
 
 	@PutMapping("/user")
-	public UserProjection updateUser(@RequestBody WowUser user) {
+	public UserDTO updateUser(@RequestBody WowUser user) {
 		userService.addUser(user);
 		return userService.getUser();
 	}

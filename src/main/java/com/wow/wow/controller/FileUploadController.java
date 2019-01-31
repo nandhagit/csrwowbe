@@ -7,14 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.wow.wow.service.AddressService;
 import com.wow.wow.service.StorageService;
 
 @RestController
 public class FileUploadController {
-
-	@Autowired
-	AddressService addressService;
 
 	@Autowired
 	StorageService storageService;

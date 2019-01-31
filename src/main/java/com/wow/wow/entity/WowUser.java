@@ -21,6 +21,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -41,6 +42,7 @@ public class WowUser {
 	@Column(name = "PASSWORD", length = 100)
 	@NotNull
 	@Size(min = 4, max = 100)
+	@JsonIgnore
 	private String signinpassword;
 
 	@Column(name = "FIRSTNAME", length = 50)
@@ -60,10 +62,12 @@ public class WowUser {
 
 	@Column(name = "ENABLED")
 	@NotNull
+	@JsonIgnore
 	private Boolean enabled;
 
 	@Column(name = "LASTPASSWORDRESETDATE")
 	@Temporal(TemporalType.TIMESTAMP)
+	@JsonIgnore
 	@NotNull
 	private Date lastPasswordResetDate;
 
@@ -81,6 +85,7 @@ public class WowUser {
 	@JoinTable(name = "USER_AUTHORITY", joinColumns = {
 			@JoinColumn(name = "USER_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
 					@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID") })
+	@JsonIgnore
 	private List<Authority> authorities;
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -182,7 +187,5 @@ public class WowUser {
 	public void setSigninpassword(String signinpassword) {
 		this.signinpassword = signinpassword;
 	}
-	
-	
 
 }

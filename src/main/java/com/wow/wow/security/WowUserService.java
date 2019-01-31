@@ -1,15 +1,15 @@
 package com.wow.wow.security;
 
-import com.wow.wow.dto.UserProjection;
+import com.wow.wow.dto.UserDTO;
 import com.wow.wow.entity.WowUser;
 
 public interface WowUserService {
 
 	public void addUser(WowUser user);
 
-	public UserProjection getUserById(Long userId);
+	public UserDTO getUserById(Long userId);
 
-	public UserProjection getUser();
+	public UserDTO getUser();
 
 	public boolean isPhoneTaken(Long phoneNumber);
 

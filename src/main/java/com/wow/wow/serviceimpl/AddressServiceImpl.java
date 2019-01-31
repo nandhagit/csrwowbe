@@ -1,11 +1,13 @@
 package com.wow.wow.serviceimpl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wow.wow.dto.AddressProjection;
+import com.wow.wow.dto.AddressDTO;
 import com.wow.wow.entity.Address;
 import com.wow.wow.entity.WowUser;
 import com.wow.wow.repository.AddressRepository;
@@ -33,8 +35,10 @@ public class AddressServiceImpl implements AddressService {
 	}
 
 	@Override
-	public List<AddressProjection> getAddress() {
-		return addressRepo.findByUser(getUser());
+	public List<AddressDTO> getAddress() {
+		ModelMapper mapper = new ModelMapper();
+		return addressRepo.findByUser(getUser()).stream().map(address -> mapper.map(address, AddressDTO.class))
+				.collect(Collectors.toList());
 	}
 
 }

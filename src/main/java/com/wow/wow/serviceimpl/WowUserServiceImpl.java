@@ -4,11 +4,12 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.wow.wow.dto.UserProjection;
+import com.wow.wow.dto.UserDTO;
 import com.wow.wow.entity.Authority;
 import com.wow.wow.entity.WowUser;
 import com.wow.wow.repository.AuthorityRepository;
@@ -28,6 +29,8 @@ public class WowUserServiceImpl implements WowUserService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	ModelMapper mapper = new ModelMapper();
+
 	@Override
 	public void addUser(WowUser user) {
 		user.setUsername(String.valueOf(user.getPhone()));
@@ -40,13 +43,13 @@ public class WowUserServiceImpl implements WowUserService {
 	}
 
 	@Override
-	public UserProjection getUserById(Long userId) {
-		return userRepo.getById(userId).orElse(null);
+	public UserDTO getUserById(Long userId) {
+		return mapper.map(userRepo.findById(userId).orElse(null), UserDTO.class);
 	}
 
 	@Override
-	public UserProjection getUser() {
-		return userRepo.getById(UserUtil.getCurrentUser().getId()).orElse(null);
+	public UserDTO getUser() {
+		return mapper.map(userRepo.findById(UserUtil.getCurrentUser().getId()).orElse(null), UserDTO.class);
 	}
 
 	@Override

@@ -1,11 +1,13 @@
 package com.wow.wow.serviceimpl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wow.wow.dto.OrderProjection;
+import com.wow.wow.dto.OrderDTO;
 import com.wow.wow.entity.WowUser;
 import com.wow.wow.repository.AddressRepository;
 import com.wow.wow.repository.OrdersRepository;
@@ -25,14 +27,18 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	AddressRepository addressRepo;
 
+	ModelMapper mapper = new ModelMapper();
+
 	@Override
-	public List<OrderProjection> getOrders() {
-		return orderRepo.findByUser(getUser());
+	public List<OrderDTO> getOrders() {
+		return orderRepo.findByUser(getUser()).stream().map(order -> mapper.map(order, OrderDTO.class))
+				.collect(Collectors.toList());
 	}
 
 	@Override
-	public List<OrderProjection> getAllOrders() {
-		return orderRepo.findAllProjectedBy();
+	public List<OrderDTO> getAllOrders() {
+		return orderRepo.findAll().stream().map(order -> mapper.map(order, OrderDTO.class))
+				.collect(Collectors.toList());
 	}
 
 	private WowUser getUser() {
@@ -40,8 +46,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public OrderProjection getOrderDetail(Long orderId) {
-		return orderRepo.getById(orderId);
+	public OrderDTO getOrderDetail(Long orderId) {
+
+		return mapper.map(orderRepo.findById(orderId), OrderDTO.class);
 	}
 
 }
