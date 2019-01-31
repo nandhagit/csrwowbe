@@ -1,4 +1,4 @@
-package com.wow.wow.model;
+package com.wow.wow.entity;
 
 public enum AuthorityName {
 	ROLE_USER, ROLE_ADMIN

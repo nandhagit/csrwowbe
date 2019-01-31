@@ -8,10 +8,10 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wow.wow.model.Cart;
-import com.wow.wow.model.CartItem;
-import com.wow.wow.model.Product;
-import com.wow.wow.model.WowUser;
+import com.wow.wow.entity.Cart;
+import com.wow.wow.entity.CartItem;
+import com.wow.wow.entity.Product;
+import com.wow.wow.entity.WowUser;
 import com.wow.wow.repository.CartItemRepository;
 import com.wow.wow.repository.CartRepository;
 import com.wow.wow.repository.ProductRepository;

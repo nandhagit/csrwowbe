@@ -1,14 +1,15 @@
-package com.wow.wow.model;
+package com.wow.wow.entity;
 
+import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -47,15 +48,19 @@ public class Product {
 
 	@Column(name = "SUBTYPE")
 	private @NotNull String subType;
-	
+
 	@Column(name = "IMAGE_URL")
 	private @NotNull String imageURL;
 
-	@OneToMany
-	@JoinTable(name = "product_rating", joinColumns = {
-			@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
-					@JoinColumn(name = "RATING_ID", referencedColumnName = "ID") })
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "PRODUCT_ID")
 	private Set<Rating> ratings;
+
+	@Column(name = "CREATED_DATE")
+	private @NotNull Date createdDate;
+
+	@Column(name = "LAST_MODIFIED_DATE")
+	private @NotNull Date lastModifiedDate;
 
 	public String getName() {
 		return name;
@@ -136,5 +141,29 @@ public class Product {
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
 	}
-	
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", code=" + code + ", price="
+				+ price + ", size=" + size + ", category=" + category + ", subType=" + subType + ", imageURL="
+				+ imageURL + ", ratings=" + ratings + ", createdDate=" + createdDate + ", lastModifiedDate="
+				+ lastModifiedDate + "]";
+	}
+
 }

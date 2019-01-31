@@ -1,4 +1,4 @@
-package com.wow.wow.model;
+package com.wow.wow.entity;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 

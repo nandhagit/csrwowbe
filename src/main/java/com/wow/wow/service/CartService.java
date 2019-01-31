@@ -2,8 +2,8 @@ package com.wow.wow.service;
 
 import java.util.Collection;
 
-import com.wow.wow.model.Cart;
-import com.wow.wow.model.CartItem;
+import com.wow.wow.entity.Cart;
+import com.wow.wow.entity.CartItem;
 
 public interface CartService {
 

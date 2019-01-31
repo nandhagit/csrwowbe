@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wow.wow.dto.AddressProjection;
-import com.wow.wow.model.Address;
-import com.wow.wow.model.WowUser;
+import com.wow.wow.entity.Address;
+import com.wow.wow.entity.WowUser;
 import com.wow.wow.repository.AddressRepository;
 import com.wow.wow.repository.WowUserRepository;
 import com.wow.wow.service.AddressService;

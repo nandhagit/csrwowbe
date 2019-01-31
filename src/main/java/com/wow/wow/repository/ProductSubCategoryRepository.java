@@ -5,8 +5,8 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.wow.wow.model.Category;
-import com.wow.wow.model.ProductSubCategory;
+import com.wow.wow.entity.Category;
+import com.wow.wow.entity.ProductSubCategory;
 
 @RepositoryRestResource(path = "/subtype")
 public interface ProductSubCategoryRepository extends JpaRepository<ProductSubCategory, Long> {

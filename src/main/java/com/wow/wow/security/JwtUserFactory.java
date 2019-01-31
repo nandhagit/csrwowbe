@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.wow.wow.model.Authority;
-import com.wow.wow.model.WowUser;
+import com.wow.wow.entity.Authority;
+import com.wow.wow.entity.WowUser;
 
 public final class JwtUserFactory {
 

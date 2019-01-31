@@ -7,7 +7,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.wow.wow.dto.UserProjection;
-import com.wow.wow.model.WowUser;
+import com.wow.wow.entity.WowUser;
 
 @RepositoryRestResource(path = "/users")
 @CrossOrigin(origins = "http://localhost:4200")

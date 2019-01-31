@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wow.wow.dto.UserProjection;
-import com.wow.wow.model.WowUser;
+import com.wow.wow.entity.WowUser;
 import com.wow.wow.security.WowUserService;
 
 @RestController

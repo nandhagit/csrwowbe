@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
-import com.wow.wow.model.PaymentDetail;
+import com.wow.wow.entity.PaymentDetail;
 
 public class PaymentUtil {
 

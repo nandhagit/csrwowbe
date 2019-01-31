@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wow.wow.dto.OrderProjection;
-import com.wow.wow.model.WowUser;
+import com.wow.wow.entity.WowUser;
 import com.wow.wow.repository.AddressRepository;
 import com.wow.wow.repository.OrdersRepository;
 import com.wow.wow.repository.WowUserRepository;

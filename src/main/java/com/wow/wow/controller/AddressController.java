@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wow.wow.dto.AddressProjection;
-import com.wow.wow.model.Address;
+import com.wow.wow.entity.Address;
 import com.wow.wow.service.AddressService;
 
 @RestController

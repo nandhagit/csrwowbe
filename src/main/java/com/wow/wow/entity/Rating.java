@@ -1,4 +1,4 @@
-package com.wow.wow.model;
+package com.wow.wow.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

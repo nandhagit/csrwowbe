@@ -22,30 +22,30 @@ INSERT INTO PRODUCT_SUB_CATEGORY (ID, SUBTYPE, CATEGORY) VALUES (6, 'Coloured St
 INSERT INTO PRODUCT_SUB_CATEGORY (ID, SUBTYPE, CATEGORY) VALUES (2, 'Shopping Bag', 2);
 INSERT INTO PRODUCT_SUB_CATEGORY (ID, SUBTYPE, CATEGORY) VALUES (3, 'Fashion Pouch', 3);
 
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (1, 'US Designed Stole', 'DESC', 'CODE123', 100, '12', 'Stole', 'Designed Stole', 'http://localhost:8081/static/stole.png');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (2, 'India Plain Stole', 'DESC', 'CODE124', 200, '12', 'Stole', 'Plain Stole', 'http://localhost:8081/static/stole.png');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (3, 'Large Antique Shopping Bag', 'DESC', 'CODE125', 300, '12', 'Bag', 'Shopping Bag', 'https://cdn12.picryl.com/photo/2016/12/31/bag-shopping-weave-0fa6ea-1024.png');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (4, 'Smaller Pouch for great fashion', 'DESC', 'CODE126', 260, '12', 'Pouch', 'Fashion Pouch', 'https://c1.staticflickr.com/3/2294/5715698078_9ff3a1cd2b_b.jpg');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (5, 'Green Awesome Stole', 'DESC', 'CODE1235', 100, '12', 'Stole', 'Designed Stole', 'http://localhost:8081/static/stole.png');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (6, 'Traditional Stole', 'DESC', 'CODE1246', 200, '12', 'Stole', 'Plain Stole', 'http://localhost:8081/static/stole.png');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (7, 'Leather Shopping Bag', 'DESC', 'CODE1257', 300, '12', 'Bag', 'Shopping Bag', 'https://cdn12.picryl.com/photo/2016/12/31/bag-shopping-weave-0fa6ea-1024.png');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (8, 'Big Pouch', 'DESC', 'CODE1268', 260, '12', 'Pouch', 'Fashion Pouch', 'https://c1.staticflickr.com/3/2294/5715698078_9ff3a1cd2b_b.jpg');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (9, 'Wow Stole', 'DESC', 'CODE1239', 100, '12', 'Stole', 'Designed Stole', 'http://localhost:8081/static/stole2.png');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (10, 'Wow Plain Stole', 'DESC', 'CODE12410', 200, '12', 'Stole', 'Plain Stole', 'http://localhost:8081/static/stole2.png');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (11, 'Big bag for shopping', 'DESC', 'CODE12511', 300, '12', 'Bag', 'Shopping Bag', 'https://cdn12.picryl.com/photo/2016/12/31/bag-shopping-weave-0fa6ea-1024.png');
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
-VALUES (12, 'Pouch for kids', 'DESC', 'CODE12612', 260, '12', 'Pouch', 'Fashion Pouch', 'https://c1.staticflickr.com/3/2294/5715698078_9ff3a1cd2b_b.jpg');
+INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL, CREATED_DATE, LAST_MODIFIED_DATE) 
+VALUES (1, 'US Designed Stole', 'DESC', 'CODE123', 100, '12', 'Stole', 'Designed Stole', 'http://localhost:8081/static/stole.png', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (2, 'India Plain Stole', 'DESC', 'CODE124', 200, '12', 'Stole', 'Plain Stole', 'http://localhost:8081/static/stole.png');
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (3, 'Large Antique Shopping Bag', 'DESC', 'CODE125', 300, '12', 'Bag', 'Shopping Bag', 'https://cdn12.picryl.com/photo/2016/12/31/bag-shopping-weave-0fa6ea-1024.png');
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (4, 'Smaller Pouch for great fashion', 'DESC', 'CODE126', 260, '12', 'Pouch', 'Fashion Pouch', 'https://c1.staticflickr.com/3/2294/5715698078_9ff3a1cd2b_b.jpg');
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (5, 'Green Awesome Stole', 'DESC', 'CODE1235', 100, '12', 'Stole', 'Designed Stole', 'http://localhost:8081/static/stole.png');
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (6, 'Traditional Stole', 'DESC', 'CODE1246', 200, '12', 'Stole', 'Plain Stole', 'http://localhost:8081/static/stole.png');
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (7, 'Leather Shopping Bag', 'DESC', 'CODE1257', 300, '12', 'Bag', 'Shopping Bag', 'https://cdn12.picryl.com/photo/2016/12/31/bag-shopping-weave-0fa6ea-1024.png');
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (8, 'Big Pouch', 'DESC', 'CODE1268', 260, '12', 'Pouch', 'Fashion Pouch', 'https://c1.staticflickr.com/3/2294/5715698078_9ff3a1cd2b_b.jpg');
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (9, 'Wow Stole', 'DESC', 'CODE1239', 100, '12', 'Stole', 'Designed Stole', 'http://localhost:8081/static/stole2.png');
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (10, 'Wow Plain Stole', 'DESC', 'CODE12410', 200, '12', 'Stole', 'Plain Stole', 'http://localhost:8081/static/stole2.png');
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (11, 'Big bag for shopping', 'DESC', 'CODE12511', 300, '12', 'Bag', 'Shopping Bag', 'https://cdn12.picryl.com/photo/2016/12/31/bag-shopping-weave-0fa6ea-1024.png');
+--INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, CODE, PRICE, SIZE, CATEGORY, SUBTYPE, IMAGE_URL) 
+--VALUES (12, 'Pouch for kids', 'DESC', 'CODE12612', 260, '12', 'Pouch', 'Fashion Pouch', 'https://c1.staticflickr.com/3/2294/5715698078_9ff3a1cd2b_b.jpg');
 
 /*INSERT INTO ORDERS (ID, USER_ID, PRODUCT_INFO, AMOUNT, PAYMENT_STATUS, PAYMENT_DATE, TRANSACTION_ID, MIH_PAY_ID, PAYMENT_MODE)
 VALUES (1, 1, 'PRODUCT INFO', 123, 'Success', CURRENT_DATE(), 'txn123', 'payid123', 'DC');
@@ -57,17 +57,17 @@ VALUES (2, 2, 'PRODUCT INFO 123', 3200, 'Success', CURRENT_DATE(), 'txn1232', 'p
 INSERT INTO ORDERS (ID, USER_ID, PRODUCT_INFO, AMOUNT, PAYMENT_STATUS, PAYMENT_DATE, TRANSACTION_ID, MIH_PAY_ID, PAYMENT_MODE)
 VALUES (3, 3, 'PRODUCT INFO 3', 12, 'Success', CURRENT_DATE(), 'txn1233', 'payid1233', 'DC3');*/
 
-INSERT INTO RATING (ID, RATING, REVIEW, USER_ID, TITLE) VALUES (1, 4, 'good product', 1, 'Good');
-INSERT INTO RATING (ID, RATING, REVIEW, USER_ID, TITLE) VALUES (2, 5, 'good product', 2, 'Good');
-INSERT INTO RATING (ID, RATING, USER_ID, TITLE) VALUES (3, 4, 2, 'Good');
-INSERT INTO RATING (ID, RATING, REVIEW, USER_ID, TITLE) VALUES (4, 3, 'Loved it', 2, 'Good');
-INSERT INTO RATING (ID, RATING, REVIEW, USER_ID, TITLE) VALUES (5, 5, 'very nice product. Thanks to wow', 2, 'Good');
+INSERT INTO RATING (ID, RATING, REVIEW, USER_ID, TITLE, PRODUCT_ID) VALUES (1, 4, 'good product', 1, 'Good', 1);
+--INSERT INTO RATING (ID, RATING, REVIEW, USER_ID, TITLE) VALUES (2, 5, 'good product', 2, 'Good');
+--INSERT INTO RATING (ID, RATING, USER_ID, TITLE) VALUES (3, 4, 2, 'Good');
+--INSERT INTO RATING (ID, RATING, REVIEW, USER_ID, TITLE) VALUES (4, 3, 'Loved it', 2, 'Good');
+--INSERT INTO RATING (ID, RATING, REVIEW, USER_ID, TITLE) VALUES (5, 5, 'very nice product. Thanks to wow', 2, 'Good');
 
 
-INSERT INTO PRODUCT_RATING (PRODUCT_ID, RATING_ID) VALUES (1, 1);
-INSERT INTO PRODUCT_RATING (PRODUCT_ID, RATING_ID) VALUES (1, 2);
-INSERT INTO PRODUCT_RATING (PRODUCT_ID, RATING_ID) VALUES (1, 3);
-INSERT INTO PRODUCT_RATING (PRODUCT_ID, RATING_ID) VALUES (1, 4);
-INSERT INTO PRODUCT_RATING (PRODUCT_ID, RATING_ID) VALUES (1, 5);
+--INSERT INTO PRODUCT_RATING (PRODUCT_ID, RATING_ID) VALUES (1, 1);
+--INSERT INTO PRODUCT_RATING (PRODUCT_ID, RATING_ID) VALUES (1, 2);
+--INSERT INTO PRODUCT_RATING (PRODUCT_ID, RATING_ID) VALUES (1, 3);
+--INSERT INTO PRODUCT_RATING (PRODUCT_ID, RATING_ID) VALUES (1, 4);
+--INSERT INTO PRODUCT_RATING (PRODUCT_ID, RATING_ID) VALUES (1, 5);
 
 

@@ -9,8 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.wow.wow.dto.UserProjection;
-import com.wow.wow.model.Authority;
-import com.wow.wow.model.WowUser;
+import com.wow.wow.entity.Authority;
+import com.wow.wow.entity.WowUser;
 import com.wow.wow.repository.AuthorityRepository;
 import com.wow.wow.repository.WowUserRepository;
 import com.wow.wow.security.WowUserService;

@@ -1,6 +1,7 @@
 package com.wow.wow.controller;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wow.wow.model.Category;
-import com.wow.wow.model.Product;
-import com.wow.wow.model.ProductSubCategory;
+import com.wow.wow.entity.Category;
+import com.wow.wow.entity.Product;
+import com.wow.wow.entity.ProductSubCategory;
 import com.wow.wow.repository.CategoryRepository;
 import com.wow.wow.repository.ProductRepository;
 import com.wow.wow.repository.ProductSubCategoryRepository;
@@ -55,14 +56,17 @@ public class ProductController {
 		ProductSubCategory subCat = subRepo.findById(Long.parseLong(product.getSubType())).orElse(null);
 		product.setSubType(subCat.getSubType());
 		product.setCategory(subCat.getCategory().getName());
+		product.setCreatedDate(new Date());
+		product.setLastModifiedDate(new Date());
 		productrepo.save(product);
 	}
-	
+
 	@PutMapping("/products")
 	public void updateProduct(@RequestBody Product product) {
 		ProductSubCategory subCat = subRepo.findById(Long.parseLong(product.getSubType())).orElse(null);
 		product.setSubType(subCat.getSubType());
 		product.setCategory(subCat.getCategory().getName());
+		product.setLastModifiedDate(new Date());
 		productrepo.save(product);
 	}
 

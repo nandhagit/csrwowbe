@@ -2,7 +2,7 @@ package com.wow.wow.dto;
 
 import java.util.Set;
 
-import com.wow.wow.model.CartItem;
+import com.wow.wow.entity.CartItem;
 
 public interface CartProjection {
 

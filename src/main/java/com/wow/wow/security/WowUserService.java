@@ -1,7 +1,7 @@
 package com.wow.wow.security;
 
 import com.wow.wow.dto.UserProjection;
-import com.wow.wow.model.WowUser;
+import com.wow.wow.entity.WowUser;
 
 public interface WowUserService {
 
