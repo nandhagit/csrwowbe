@@ -18,4 +18,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	@Query("select min(price), max(price) from Product")
 	Object findMinAndMaxPrice();
+	
+	
+	@Query("select max(id) from Product")
+	Integer findLatestId();
+	
+	
 }

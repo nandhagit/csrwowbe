@@ -32,7 +32,7 @@ public class ProductHistory {
 	@Column
 	private String description;
 
-	@Column(unique = true)
+	@Column
 	private @NotNull String code;
 
 	@Column
@@ -55,7 +55,7 @@ public class ProductHistory {
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "MODIFIED_BY")
-	private @NotNull WowUser createdBy;
+	private @NotNull WowUser modifiedBy;
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "PRODUCT_ID")
@@ -141,12 +141,13 @@ public class ProductHistory {
 		this.lastModifiedDate = lastModifiedDate;
 	}
 
-	public WowUser getCreatedBy() {
-		return createdBy;
+
+	public WowUser getModifiedBy() {
+		return modifiedBy;
 	}
 
-	public void setCreatedBy(WowUser createdBy) {
-		this.createdBy = createdBy;
+	public void setModifiedBy(WowUser modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 
 	public Product getProductId() {

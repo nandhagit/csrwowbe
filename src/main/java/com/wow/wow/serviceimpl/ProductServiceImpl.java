@@ -18,6 +18,7 @@ import com.wow.wow.repository.ProductHistoryRepository;
 import com.wow.wow.repository.ProductRepository;
 import com.wow.wow.repository.ProductSubCategoryRepository;
 import com.wow.wow.service.ProductService;
+import com.wow.wow.utility.UserUtil;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -35,6 +36,9 @@ public class ProductServiceImpl implements ProductService {
 	ProductSubCategoryRepository subRepo;
 
 	ModelMapper mapper = new ModelMapper();
+	
+	@Autowired
+	UserUtil userUtil;
 
 	public Collection<ProductDTO> getAllProducts() {
 		ModelMapper mapper = new ModelMapper();
@@ -61,9 +65,12 @@ public class ProductServiceImpl implements ProductService {
 		product.setCategory(subCat.getCategory().getName());
 		product.setCreatedDate(new Date());
 		product.setLastModifiedDate(new Date());
+		product.setCreatedBy(userUtil.getUser());
+		product.setCode(generateUniqueProductCode(product.getCategory()));
 		ProductHistory productHistory = mapper.map(product, ProductHistory.class);
 		productrepo.save(product);
 		productHistory.setProductId(product);
+		productHistory.setModifiedBy(userUtil.getUser());
 		productHistoryRepo.save(productHistory);
 	}
 
@@ -73,13 +80,22 @@ public class ProductServiceImpl implements ProductService {
 		product.setCategory(subCat.getCategory().getName());
 		product.setLastModifiedDate(new Date());
 		ProductHistory productHistory = mapper.map(product, ProductHistory.class);
+		productHistory.setId(null);
 		productrepo.save(product);
 		productHistory.setProductId(product);
+		productHistory.setModifiedBy(userUtil.getUser());
 		productHistoryRepo.save(productHistory);
 	}
 
 	public Product getProduct(Long productId) {
 		return productrepo.findById(productId).orElse(null);
+	}
+	
+	
+	
+	private String generateUniqueProductCode(String category) {
+		return "WOW"+category.toUpperCase()+String.format("%07d", productrepo.findLatestId());
+		
 	}
 
 }

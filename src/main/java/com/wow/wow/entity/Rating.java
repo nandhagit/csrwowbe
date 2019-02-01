@@ -38,7 +38,7 @@ public class Rating {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonBackReference
-	@JoinColumn(name = "product_id")
+	@JoinColumn(name = "PRODUCT_ID")
 	private @NotNull Product product;
 
 	public Long getId() {

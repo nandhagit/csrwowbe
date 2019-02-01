@@ -28,10 +28,12 @@ public class OrderServiceImpl implements OrderService {
 	AddressRepository addressRepo;
 
 	ModelMapper mapper = new ModelMapper();
+	
+	UserUtil userUtil = new UserUtil();
 
 	@Override
 	public List<OrderDTO> getOrders() {
-		return orderRepo.findByUser(getUser()).stream().map(order -> mapper.map(order, OrderDTO.class))
+		return orderRepo.findByUser(userUtil.getUser()).stream().map(order -> mapper.map(order, OrderDTO.class))
 				.collect(Collectors.toList());
 	}
 
@@ -41,13 +43,8 @@ public class OrderServiceImpl implements OrderService {
 				.collect(Collectors.toList());
 	}
 
-	private WowUser getUser() {
-		return userRepo.findById(UserUtil.getCurrentUser().getId()).orElse(null);
-	}
-
 	@Override
 	public OrderDTO getOrderDetail(Long orderId) {
-
 		return mapper.map(orderRepo.findById(orderId), OrderDTO.class);
 	}
 

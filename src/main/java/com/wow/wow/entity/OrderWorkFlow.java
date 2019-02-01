@@ -16,13 +16,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table
-public class Orders {
+@Table(name="ORDER_WORK_FLOW")
+public class OrderWorkFlow {
 
 	@Id
 	@Column(name = "ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_seq")
-	@SequenceGenerator(name = "order_seq", sequenceName = "order_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_work_flow_seq")
+	@SequenceGenerator(name = "order_work_flow_seq", sequenceName = "order_work_flow_seq", allocationSize = 1)
 	private Long id;
 
 	@JoinColumn(name = "USER_ID")
@@ -41,22 +41,25 @@ public class Orders {
 	@Column(name = "PAYMENT_DATE")
 	private Date paymentDate;
 
-	@Column(name = "PAYMENT_ID")
-	private String paymentId;
+	@Column(name = "TRANSACTION_ID")
+	private String transactionId;
+
+	@Column(name = "MIH_PAY_ID")
+	private String mihpayId;
 
 	@Column(name = "PAYMENT_MODE")
 	private String paymentMode;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "CART_ID")
+	@JoinColumn(name = "cart")
 	private @NotNull Cart cart;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ADDRESS_ID")
+	@JoinColumn(name = "address")
 	private @NotNull Address address;
 
-	@Column(name = "ORDER_STATUS")
-	private @NotNull String orderStatus;
+	@Column(name="ORDER_STATUS")
+	private @NotNull String status;
 
 	public Long getId() {
 		return id;
@@ -98,6 +101,22 @@ public class Orders {
 		this.paymentDate = paymentDate;
 	}
 
+	public String getMihpayId() {
+		return mihpayId;
+	}
+
+	public void setMihpayId(String mihpayId) {
+		this.mihpayId = mihpayId;
+	}
+
+	public String getTransactionId() {
+		return transactionId;
+	}
+
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId;
+	}
+
 	public String getPaymentMode() {
 		return paymentMode;
 	}
@@ -130,22 +149,12 @@ public class Orders {
 		this.address = address;
 	}
 
-	public String getPaymentId() {
-		return paymentId;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setPaymentId(String paymentId) {
-		this.paymentId = paymentId;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-
-	public String getOrderStatus() {
-		return orderStatus;
-	}
-
-	public void setOrderStatus(String orderStatus) {
-		this.orderStatus = orderStatus;
-	}
-	
-	
 
 }
