@@ -1,4 +1,4 @@
-package com.wow.wow.model;
+package com.wow.wow.entity;
 
 import java.util.Date;
 import java.util.List;
@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -21,7 +22,9 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "WOWUSER")
@@ -41,7 +44,8 @@ public class WowUser {
 	@Column(name = "PASSWORD", length = 100)
 	@NotNull
 	@Size(min = 4, max = 100)
-	private String password;
+	@JsonIgnore
+	private String signinpassword;
 
 	@Column(name = "FIRSTNAME", length = 50)
 	@NotNull
@@ -60,10 +64,12 @@ public class WowUser {
 
 	@Column(name = "ENABLED")
 	@NotNull
+	@JsonIgnore
 	private Boolean enabled;
 
 	@Column(name = "LASTPASSWORDRESETDATE")
 	@Temporal(TemporalType.TIMESTAMP)
+	@JsonIgnore
 	@NotNull
 	private Date lastPasswordResetDate;
 
@@ -81,10 +87,11 @@ public class WowUser {
 	@JoinTable(name = "USER_AUTHORITY", joinColumns = {
 			@JoinColumn(name = "USER_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
 					@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID") })
+	@JsonIgnore
 	private List<Authority> authorities;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "CART")
+	@JsonManagedReference
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Cart cart;
 
 	public Long getId() {
@@ -101,14 +108,6 @@ public class WowUser {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getFirstname() {
@@ -181,6 +180,14 @@ public class WowUser {
 
 	public void setCart(Cart cart) {
 		this.cart = cart;
+	}
+
+	public String getSigninpassword() {
+		return signinpassword;
+	}
+
+	public void setSigninpassword(String signinpassword) {
+		this.signinpassword = signinpassword;
 	}
 
 }

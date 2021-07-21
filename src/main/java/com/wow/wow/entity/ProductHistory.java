@@ -1,6 +1,6 @@
-package com.wow.wow.model;
+package com.wow.wow.entity;
 
-import java.util.Set;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -19,11 +18,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Table
-public class Product {
+public class ProductHistory {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
-	@SequenceGenerator(initialValue = 10, name = "product_seq", sequenceName = "product_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_history_seq")
+	@SequenceGenerator(initialValue = 10, name = "product_history_seq", sequenceName = "product_history_seq", allocationSize = 1)
 	@Column
 	private Long id;
 
@@ -33,7 +32,7 @@ public class Product {
 	@Column
 	private String description;
 
-	@Column(unique = true)
+	@Column
 	private @NotNull String code;
 
 	@Column
@@ -47,15 +46,20 @@ public class Product {
 
 	@Column(name = "SUBTYPE")
 	private @NotNull String subType;
-	
+
 	@Column(name = "IMAGE_URL")
 	private @NotNull String imageURL;
 
-	@OneToMany
-	@JoinTable(name = "product_rating", joinColumns = {
-			@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
-					@JoinColumn(name = "RATING_ID", referencedColumnName = "ID") })
-	private Set<Rating> ratings;
+	@Column(name = "DATE")
+	private @NotNull Date lastModifiedDate;
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "MODIFIED_BY")
+	private @NotNull WowUser modifiedBy;
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "PRODUCT_ID")
+	private Product productId;
 
 	public String getName() {
 		return name;
@@ -121,14 +125,6 @@ public class Product {
 		this.subType = subType;
 	}
 
-	public Set<Rating> getRatings() {
-		return ratings;
-	}
-
-	public void setRatings(Set<Rating> ratings) {
-		this.ratings = ratings;
-	}
-
 	public String getImageURL() {
 		return imageURL;
 	}
@@ -136,5 +132,30 @@ public class Product {
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
 	}
-	
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+
+
+	public WowUser getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(WowUser modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	public Product getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Product productId) {
+		this.productId = productId;
+	}
+
 }

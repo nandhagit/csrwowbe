@@ -1,13 +1,18 @@
-package com.wow.wow.model;
+package com.wow.wow.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table
@@ -30,6 +35,11 @@ public class Rating {
 
 	@Column(name = "USER_ID")
 	private @NotNull Long user;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
+	@JoinColumn(name = "PRODUCT_ID")
+	private @NotNull Product product;
 
 	public Long getId() {
 		return id;
@@ -69,6 +79,23 @@ public class Rating {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	@Override
+	public String toString() {
+		return "Rating [id=" + id + ", rating=" + rating + ", title=" + title + ", review=" + review + ", user=" + user
+				+ ", product=" + product + ", getId()=" + getId() + ", getRating()=" + getRating() + ", getReview()="
+				+ getReview() + ", getUser()=" + getUser() + ", getTitle()=" + getTitle() + ", getProduct()="
+				+ getProduct() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
 	}
 
 }

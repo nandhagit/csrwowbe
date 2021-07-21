@@ -1,12 +1,14 @@
 package com.wow.wow.service;
 
-import com.wow.wow.model.PaymentCallback;
-import com.wow.wow.model.PaymentDetail;
+import java.util.Map;
 
 public interface PaymentService {
 
-	public PaymentDetail proceedPayment(PaymentDetail paymentDetail);
+	//public PaymentDetail proceedPayment(PaymentDetail paymentDetail);
 
-	public String payuCallback(PaymentCallback paymentResponse);
+	//public String payuCallback(PaymentCallback paymentResponse);
+	
+	//public String razorCallback(PaymentDetail paymentResponse);
+	public Map<String, String> savePaymentDetail(String payid);
 
 }

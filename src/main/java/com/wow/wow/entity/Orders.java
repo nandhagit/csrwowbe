@@ -1,4 +1,4 @@
-package com.wow.wow.model;
+package com.wow.wow.entity;
 
 import java.util.Date;
 
@@ -41,25 +41,22 @@ public class Orders {
 	@Column(name = "PAYMENT_DATE")
 	private Date paymentDate;
 
-	@Column(name = "TRANSACTION_ID")
-	private String transactionId;
-
-	@Column(name = "MIH_PAY_ID")
-	private String mihpayId;
+	@Column(name = "PAYMENT_ID")
+	private String paymentId;
 
 	@Column(name = "PAYMENT_MODE")
 	private String paymentMode;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "cart")
+	@JoinColumn(name = "CART_ID")
 	private @NotNull Cart cart;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "address")
+	@JoinColumn(name = "ADDRESS_ID")
 	private @NotNull Address address;
 
-	@Column
-	private @NotNull String status;
+	@Column(name = "ORDER_STATUS")
+	private @NotNull String orderStatus;
 
 	public Long getId() {
 		return id;
@@ -101,22 +98,6 @@ public class Orders {
 		this.paymentDate = paymentDate;
 	}
 
-	public String getMihpayId() {
-		return mihpayId;
-	}
-
-	public void setMihpayId(String mihpayId) {
-		this.mihpayId = mihpayId;
-	}
-
-	public String getTransactionId() {
-		return transactionId;
-	}
-
-	public void setTransactionId(String transactionId) {
-		this.transactionId = transactionId;
-	}
-
 	public String getPaymentMode() {
 		return paymentMode;
 	}
@@ -149,12 +130,22 @@ public class Orders {
 		this.address = address;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getPaymentId() {
+		return paymentId;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setPaymentId(String paymentId) {
+		this.paymentId = paymentId;
 	}
+
+	public String getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+	
+	
 
 }

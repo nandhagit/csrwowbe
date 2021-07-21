@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.wow.wow.model.Authority;
-import com.wow.wow.model.WowUser;
+import com.wow.wow.entity.Authority;
+import com.wow.wow.entity.WowUser;
 
 public final class JwtUserFactory {
 
@@ -16,7 +16,7 @@ public final class JwtUserFactory {
 
 	public static JwtUser create(WowUser user) {
 		return new JwtUser(user.getId(), user.getUsername(), user.getFirstname(), user.getLastname(), user.getEmail(),
-				user.getPassword(), mapToGrantedAuthorities(user.getAuthorities()), user.getEnabled(),
+				user.getSigninpassword(), mapToGrantedAuthorities(user.getAuthorities()), user.getEnabled(),
 				user.getLastPasswordResetDate());
 	}
 

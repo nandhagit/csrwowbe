@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.wow.wow.model.WowUser;
+import com.wow.wow.entity.WowUser;
 import com.wow.wow.repository.WowUserRepository;
 import com.wow.wow.security.JwtUserFactory;
 

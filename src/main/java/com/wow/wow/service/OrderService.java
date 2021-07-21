@@ -2,12 +2,12 @@ package com.wow.wow.service;
 
 import java.util.List;
 
-import com.wow.wow.dto.OrderProjection;
+import com.wow.wow.dto.OrderDTO;
 
 public interface OrderService {
-	public List<OrderProjection> getOrders();
+	public List<OrderDTO> getOrders();
 
-	public List<OrderProjection> getAllOrders();
+	public List<OrderDTO> getAllOrders();
 
-	public OrderProjection getOrderDetail(Long orderId);
+	public OrderDTO getOrderDetail(Long orderId);
 }

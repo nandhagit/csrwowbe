@@ -1,3 +1,4 @@
+package com.wow.wow.entity;
 /*
  * package com.wow.wow.model;
  * 
